@@ -1,0 +1,340 @@
+@import "tailwindcss";
+
+/* Paleta y fuentes base de la invitación */
+:root {
+  --primary-color: #2C3E50; /* azul marino */
+  --secondary-color: #3e5870;
+  --background-cream: #FAF7F0;
+  --stripe-color: rgba(201, 189, 167, 0.3);
+  --text-dark: #2C3E50;
+  --text-light: #6b6b6b;
+  --white: #ffffff;
+}
+
+@theme inline {
+  --color-background: var(--background-cream);
+  --color-foreground: var(--text-dark);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Lato", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  color: var(--text-dark);
+  line-height: 1.6;
+  overflow-x: hidden;
+  background-color: var(--background-cream);
+  background-image: repeating-linear-gradient(
+    90deg,
+    transparent 0,
+    transparent 50px,
+    var(--stripe-color) 50px,
+    var(--stripe-color) 51px
+  );
+}
+
+.script-font {
+  font-family: "Dancing Script", cursive;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+section {
+  padding: 80px 0;
+}
+
+.section-title {
+  font-family: "Playfair Display", serif;
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: var(--text-dark);
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.section-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: var(--primary-color);
+}
+
+/* Hero */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  text-align: center;
+  color: var(--primary-color);
+  padding: 100px 20px 60px;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  animation: fadeInUp 1s ease;
+  max-width: 640px;
+}
+
+.hero-title {
+  font-family: "Dancing Script", cursive;
+  font-size: 3.4rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.hero-subtitle {
+  font-family: "Lato", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.3rem;
+  margin-top: 0.25rem;
+}
+
+.hero-subtitle-secondary {
+  color: var(--primary-color);
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: fadeInUp 1.2s ease;
+}
+
+.chevron {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border-right: 2px solid var(--primary-color);
+  border-bottom: 2px solid var(--primary-color);
+  transform: rotate(45deg);
+  animation: chevron-bounce 1.8s infinite;
+}
+
+/* Botón de música */
+.music-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: none;
+  background: var(--primary-color);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10000;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+.music-toggle:hover {
+  transform: translateY(-1px) scale(1.03);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
+}
+
+.music-toggle:active {
+  transform: translateY(0) scale(0.97);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.16);
+}
+
+.music-toggle.active {
+  animation: pulse 1.8s ease-in-out infinite;
+}
+
+.music-toggle.paused {
+  opacity: 0.7;
+}
+
+.music-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-music {
+  width: 22px;
+  height: 22px;
+  display: block;
+}
+
+.icon-music-muted {
+  display: none;
+}
+
+.music-toggle.paused .icon-music-playing {
+  display: none;
+}
+
+.music-toggle.paused .icon-music-muted {
+  display: block;
+}
+
+/* Countdown */
+.countdown-section {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: var(--white);
+}
+
+.countdown-section .section-title {
+  color: var(--white);
+}
+
+.countdown-section .section-title::after {
+  background: var(--white);
+}
+
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.countdown-item {
+  text-align: center;
+}
+
+.countdown-number {
+  display: block;
+  font-family: "Playfair Display", serif;
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.countdown-label {
+  font-size: 1rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* Ubicación */
+.location {
+  background-color: rgba(255, 255, 255, 0.85);
+}
+
+.location .container {
+  max-width: 960px;
+}
+
+.location-content {
+  text-align: left;
+  margin-bottom: 2.5rem;
+}
+
+.location-info p {
+  margin: 0.15rem 0;
+}
+
+.location-info strong {
+  font-family: "Playfair Display", serif;
+  letter-spacing: 0.08em;
+}
+
+.map-container {
+  margin-top: 0.5rem;
+}
+
+.map-placeholder {
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+  background: #e5e5e5;
+}
+
+.map-placeholder iframe {
+  display: block;
+  width: 100%;
+}
+
+/* Animaciones */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes chevron-bounce {
+  0%,
+  100% {
+    transform: translateY(0) rotate(45deg);
+  }
+  50% {
+    transform: translateY(6px) rotate(45deg);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+  }
+  50% {
+    transform: scale(1.06);
+    box-shadow: 0 10px 26px rgba(0, 0, 0, 0.24);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+  }
+}
+
+/* Responsive básico */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.4rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .countdown {
+    gap: 1.5rem;
+  }
+
+  .countdown-number {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .countdown {
+    gap: 1rem;
+  }
+
+  .countdown-number {
+    font-size: 2rem;
+  }
+}

@@ -9,7 +9,12 @@ type TimeLeft = {
   seconds: number;
 };
 
-const WEDDING_DATE = new Date("2027-04-02T16:00:00").getTime();
+// 02 de abril 2027, 20:30 hs
+const WEDDING_DATE = new Date("2027-04-02T20:30:00").getTime();
+
+function formatNumber(value: number) {
+  return value.toString().padStart(2, "0");
+}
 
 export default function CountdownSection() {
   const [timeLeft, setTimeLeft] = useState<TimeLeft>({
@@ -48,25 +53,80 @@ export default function CountdownSection() {
   }, []);
 
   return (
-    <section className="countdown-section">
+    <section className="py-16 md:py-24">
       <div className="container">
-        <h2 className="section-title">Faltan</h2>
-        <div className="countdown">
-          <div className="countdown-item">
-            <span className="countdown-number">{timeLeft.days}</span>
-            <span className="countdown-label">Días</span>
-          </div>
-          <div className="countdown-item">
-            <span className="countdown-number">{timeLeft.hours}</span>
-            <span className="countdown-label">Horas</span>
-          </div>
-          <div className="countdown-item">
-            <span className="countdown-number">{timeLeft.minutes}</span>
-            <span className="countdown-label">Minutos</span>
-          </div>
-          <div className="countdown-item">
-            <span className="countdown-number">{timeLeft.seconds}</span>
-            <span className="countdown-label">Segundos</span>
+        <div className="relative max-w-3xl mx-auto">
+          <div
+            className="relative overflow-hidden rounded-t-[100px] rounded-b-3xl px-6 py-10 md:px-10 md:py-14 flex flex-col items-center justify-center text-center shadow-xl"
+            style={{
+              backgroundColor: "#a3b18a",
+              backgroundImage:
+                "radial-gradient(circle at 0 0, rgba(255,255,255,0.12), transparent 55%), radial-gradient(circle at 80% 20%, rgba(255,255,255,0.08), transparent 55%)",
+            }}
+          >
+            <div className="pointer-events-none absolute -top-10 -right-10 w-40 h-40 rounded-full border border-white/10 opacity-40" />
+
+            <h2
+              className="text-3xl md:text-4xl lg:text-5xl mb-3 text-white"
+              style={{ fontFamily: "'Cinzel', serif", letterSpacing: "0.15em" }}
+            >
+              ¡PREPÁRATE!
+            </h2>
+
+            <p
+              className="text-sm md:text-base tracking-[0.35em] uppercase mb-8 text-white/70"
+              style={{ fontFamily: "'Montserrat', system-ui, sans-serif" }}
+            >
+              Nos vemos dentro de
+            </p>
+
+            <div className="flex flex-wrap items-end justify-center gap-4 md:gap-6 lg:gap-8 mb-2 text-white">
+              <div className="flex items-baseline gap-2">
+                <span
+                  className="text-4xl md:text-5xl lg:text-6xl"
+                  style={{ fontFamily: "'Montserrat', system-ui, sans-serif" }}
+                >
+                  {formatNumber(timeLeft.days)}
+                </span>
+                <span className="text-3xl md:text-4xl lg:text-5xl">:</span>
+              </div>
+              <div className="flex items-baseline gap-2">
+                <span
+                  className="text-4xl md:text-5xl lg:text-6xl"
+                  style={{ fontFamily: "'Montserrat', system-ui, sans-serif" }}
+                >
+                  {formatNumber(timeLeft.hours)}
+                </span>
+                <span className="text-3xl md:text-4xl lg:text-5xl">:</span>
+              </div>
+              <div className="flex items-baseline gap-2">
+                <span
+                  className="text-4xl md:text-5xl lg:text-6xl"
+                  style={{ fontFamily: "'Montserrat', system-ui, sans-serif" }}
+                >
+                  {formatNumber(timeLeft.minutes)}
+                </span>
+                <span className="text-3xl md:text-4xl lg:text-5xl">:</span>
+              </div>
+              <div className="flex items-baseline gap-2">
+                <span
+                  className="text-4xl md:text-5xl lg:text-6xl"
+                  style={{ fontFamily: "'Montserrat', system-ui, sans-serif" }}
+                >
+                  {formatNumber(timeLeft.seconds)}
+                </span>
+              </div>
+            </div>
+
+            <div
+              className="flex justify-center gap-6 text-[0.65rem] md:text-xs tracking-[0.3em] uppercase text-white/80"
+              style={{ fontFamily: "'Montserrat', system-ui, sans-serif" }}
+            >
+              <span>DÍAS</span>
+              <span>HORAS</span>
+              <span>MINUTOS</span>
+              <span>SEGUNDOS</span>
+            </div>
           </div>
         </div>
       </div>

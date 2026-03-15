@@ -1,75 +1,32 @@
-"use client";
-
-import { FormEvent, useState } from "react";
-
 export default function RsvpSection() {
-  const [sent, setSent] = useState(false);
-
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const form = e.currentTarget;
-    const formData = new FormData(form);
-    const data = Object.fromEntries(formData.entries());
-    console.log("Datos del RSVP:", data);
-    setSent(true);
-  };
-
   return (
-    <section className="rsvp" id="rsvp">
+    <section className="rsvp py-16 md:py-20" id="rsvp">
       <div className="container">
         <h2 className="section-title">Confirma tu Asistencia</h2>
-        <p className="rsvp-subtitle">
-          Por favor, confirma tu asistencia antes del 1 de marzo de 2027.
-          <br />
-          <strong>Evento exclusivo para mayores de edad.</strong>
-        </p>
-        {!sent ? (
-          <form className="rsvp-form" onSubmit={handleSubmit}>
-            <div className="form-group">
-              <label htmlFor="name">Nombre completo</label>
-              <input type="text" id="name" name="name" required />
-            </div>
-            <div className="form-group">
-              <label htmlFor="email">Email</label>
-              <input type="email" id="email" name="email" required />
-            </div>
-            <div className="form-group">
-              <label htmlFor="guests">Número de invitados</label>
-              <input
-                type="number"
-                id="guests"
-                name="guests"
-                min={1}
-                max={10}
-                required
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="attendance">¿Asistirás?</label>
-              <select id="attendance" name="attendance" required>
-                <option value="">Selecciona una opción</option>
-                <option value="yes">Sí, con mucho gusto</option>
-                <option value="no">Lamentablemente no podré asistir</option>
-              </select>
-            </div>
-            <div className="form-group">
-              <label htmlFor="message">Mensaje (opcional)</label>
-              <textarea id="message" name="message" rows={4} />
-            </div>
-            <button type="submit" className="btn-submit">
-              Enviar confirmación
-            </button>
-          </form>
-        ) : (
-          <div className="rsvp-success">
-            <p>
-              ¡Gracias por confirmar tu asistencia! Te esperamos en nuestro día
-              especial.
-            </p>
-          </div>
-        )}
+
+        <div className="max-w-xl mx-auto text-center">
+          <p
+            className="text-2xl md:text-3xl text-[#2C3E50] mb-10"
+            style={{ fontFamily: "'Playfair Display', serif" }}
+          >
+            Nos encantaría contar con tu presencia.
+          </p>
+
+          <p className="text-sm md:text-base text-[#2C3E50] font-semibold uppercase tracking-wider border-b border-[#2C3E50] pb-2 inline-block mb-6">
+            Valor de la tarjeta
+          </p>
+
+          <p className="text-[#2C3E50] mb-1">Adultos: $140.000</p>
+          <p className="text-[#2C3E50] mb-8">Niños (3 a 10): $93.000</p>
+
+          <button
+            type="button"
+            className="px-8 py-3 rounded-lg bg-[#5d7a71] text-white font-medium hover:bg-[#4a6560] transition-colors"
+          >
+            Confirmar
+          </button>
+        </div>
       </div>
     </section>
   );
 }
-

@@ -5,6 +5,7 @@ import MusicToggle, { type MusicToggleHandle } from "../components/MusicToggle";
 import EntryOverlay from "../components/EntryOverlay";
 import Hero from "../components/Hero";
 import EventSection from "../components/EventSection";
+import DateSection from "../components/DateSection";
 import CountdownSection from "../components/CountdownSection";
 import GallerySection from "../components/GallerySection";
 import DressCodeSection from "../components/DressCodeSection";
@@ -75,10 +76,11 @@ export default function Home() {
       <main>
         <Hero />
         <EventSection />
-        <CountdownSection />
         <GallerySection />
-        <DressCodeSection />
+        <DateSection />
         <LocationSection />
+        <CountdownSection />
+        <DressCodeSection />
         <RsvpSection />
         <ExtrasSection />
       </main>

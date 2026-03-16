@@ -9,9 +9,7 @@ import DateSection from "../components/DateSection";
 import CountdownSection from "../components/CountdownSection";
 import GallerySection from "../components/GallerySection";
 import DressCodeSection from "../components/DressCodeSection";
-import LocationSection from "../components/LocationSection";
 import RsvpSection from "../components/RsvpSection";
-import ExtrasSection from "../components/ExtrasSection";
 import FooterSection from "../components/FooterSection";
 
 export default function Home() {
@@ -72,17 +70,15 @@ export default function Home() {
   return (
     <>
       <EntryOverlay onEnter={handleEnter} visible={!hasEntered} />
-      <MusicToggle ref={musicRef} />
+      <MusicToggle ref={musicRef} hidden={!hasEntered} />
       <main>
         <Hero />
         <EventSection />
         <GallerySection />
         <DateSection />
-        <LocationSection />
         <CountdownSection />
         <DressCodeSection />
         <RsvpSection />
-        <ExtrasSection />
       </main>
       <FooterSection />
     </>

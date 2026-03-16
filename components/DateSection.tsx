@@ -23,57 +23,90 @@ function getGoogleCalendarUrl(): string {
   return `https://calendar.google.com/calendar/render?${params.toString()}`;
 }
 
+const MAPS_URL =
+  "https://www.google.com/maps/search/?api=1&query=La+Cayetana+Río+Negro+4000+Córdoba+Argentina";
+
 export default function DateSection() {
   return (
-    <section
-      id="fecha"
-      className="relative flex flex-col items-center justify-center text-center min-h-screen p-8 overflow-hidden"
-    >
-      <div
-        className="absolute inset-0 z-0"
-        style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}
-        aria-hidden
-      />
-      <div className="relative z-10 flex flex-col items-center justify-center text-center max-w-2xl">
-        <p
-          className="text-white text-2xl md:text-3xl font-light tracking-wide mb-2 md:mb-3"
-          style={{ fontFamily: "'Lato', sans-serif" }}
-        >
-          Viernes, 2 de abril
-        </p>
-        <p
-          className="text-5xl md:text-7xl lg:text-8xl text-white font-normal tracking-tight leading-none"
-          style={{ fontFamily: "'Playfair Display', serif" }}
-        >
-          2027
-        </p>
-        <p
-          className="mt-4 text-white/95 text-lg md:text-xl font-light tracking-wide"
-          style={{ fontFamily: "'Lato', sans-serif" }}
-        >
-          20:30 hs ceremonia y fiesta
-        </p>
-        <div
-          className="mt-8 md:mt-10 w-12 h-px bg-white/50"
-          aria-hidden
-        />
-        <a
-          href={getGoogleCalendarUrl()}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-8 md:mt-10 inline-flex items-center gap-2 px-8 py-3 rounded-lg bg-[#5d7a71] text-white font-medium hover:bg-[#4a6560] transition-colors"
-          style={{ fontFamily: "'Lato', sans-serif" }}
-        >
-          <Image
-            src="/google-calendar-icon.png"
-            alt=""
-            width={20}
-            height={20}
-            className="shrink-0"
+    <section id="fecha" className="py-14 md:py-18">
+      <div className="container">
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="section-title !mb-2 md:!mb-4">¿Cuándo?</h2>
+          <p
+            className="text-2xl md:text-3xl lg:text-4xl font-light tracking-wide mb-1 md:mb-2 text-[#5d7a71] italic"
+            style={{ fontFamily: "'Playfair Display', serif" }}
+          >
+            Viernes{" "}
+            <span className="text-4xl md:text-5xl lg:text-6xl font-normal">
+              02
+            </span>{" "}
+            abril 2027
+          </p>
+          <p
+            className="mt-4 text-lg md:text-xl font-light tracking-wide text-[#5d7a71]"
+            style={{ fontFamily: "'Lato', sans-serif" }}
+          >
+            20:30 hs ceremonia y fiesta
+          </p>
+
+          <div
+            className="mt-4 md:mt-6 w-12 h-px mx-auto bg-[#5d7a71]/40"
             aria-hidden
           />
-          Agendar fecha
-        </a>
+
+          <div className="mt-4 md:mt-6 flex flex-col items-center gap-8">
+            <a
+              href={getGoogleCalendarUrl()}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-[#5d7a71] text-white font-medium hover:bg-[#4a6560] transition-colors"
+              style={{ fontFamily: "'Lato', sans-serif" }}
+            >
+              <Image
+                src="/google-calendar-icon.png"
+                alt=""
+                width={20}
+                height={20}
+                className="shrink-0"
+                aria-hidden
+              />
+              Agendar fecha
+            </a>
+
+            {/* Bloque de lugar (agrupado con la fecha) */}
+            <div className="mt-8 md:mt-10 text-center">
+              <h3 className="section-title !mb-4 md:!mb-8">¿Dónde?</h3>
+              <div className="location-content">
+                <div className="location-info text-center">
+                  <p className="text-[#2C3E50]">
+                    <strong>SALÓN LA CAYETANA</strong>
+                  </p>
+                  <p className="text-[#2C3E50]">
+                    Río Negro N° 4000, B° Los Olmos.
+                  </p>
+                </div>
+                <div className="flex justify-center mt-4">
+                  <a
+                    href={MAPS_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-white border border-neutral-200 shadow-sm hover:shadow-md hover:border-[#5d7a71]/30 transition-all text-[#2C3E50] font-medium"
+                  >
+                    <Image
+                      src="/maps-pin.png"
+                      alt=""
+                      width={20}
+                      height={20}
+                      className="shrink-0"
+                      aria-hidden
+                    />
+                    Ver ubicación
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

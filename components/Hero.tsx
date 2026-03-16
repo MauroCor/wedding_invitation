@@ -4,18 +4,6 @@ export default function Hero() {
   return (
     <section className="hero relative" id="inicio">
       <div
-        className="absolute top-20 left-[10%] w-16 h-16 opacity-90 pointer-events-none"
-        aria-hidden
-      >
-        <BeeLottie />
-      </div>
-      <div
-        className="absolute top-24 right-[10%] w-14 h-14 opacity-90 pointer-events-none"
-        aria-hidden
-      >
-        <BeeLottie />
-      </div>
-      <div
         className="absolute inset-0 flex items-center justify-center w-full max-w-md mx-auto h-[40%] top-[18%] opacity-70 pointer-events-none"
         aria-hidden
       >
@@ -32,7 +20,18 @@ export default function Hero() {
           </p>
           <span className="flex-1 h-px shrink-0" style={{ backgroundColor: "rgba(93, 122, 113, 0.5)" }} aria-hidden />
         </div>
-        <h1 className="hero-title script-font" style={{ color: "#5d7a71" }}>Nabila &amp; Mauro</h1>
+        <div className="relative inline-block">
+          <h1 className="hero-title script-font" style={{ color: "#5d7a71" }}>
+            Nabila &amp; Mauro
+          </h1>
+          <div
+            className="pointer-events-none -z-1 absolute top-1 -right-5 w-10 h-10 md:top-3 md:-right-6 md:w-15 md:h-15"
+            style={{ clipPath: "inset(0 0 50% 0)" }}
+            aria-hidden
+          >
+            <BeeLottie className="w-full h-full" />
+          </div>
+        </div>
         <p className="hero-subtitle hero-subtitle-secondary" style={{ color: "#5d7a71" }}>LLEGÓ EL DÍA</p>
       </div>
       <div className="scroll-indicator" aria-hidden="true">

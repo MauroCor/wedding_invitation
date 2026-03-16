@@ -4,7 +4,14 @@ import { forwardRef, useEffect, useImperativeHandle, useRef, useState } from "re
 
 export type MusicToggleHandle = { startMusic: () => void };
 
-const MusicToggle = forwardRef<MusicToggleHandle>(function MusicToggle(_, ref) {
+type MusicToggleProps = {
+  hidden: boolean;
+};
+
+const MusicToggle = forwardRef<MusicToggleHandle, MusicToggleProps>(function MusicToggle(
+  { hidden },
+  ref,
+) {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const startMusicRef = useRef<() => void>(() => {});
   const [isPlaying, setIsPlaying] = useState(false);
@@ -69,9 +76,13 @@ const MusicToggle = forwardRef<MusicToggleHandle>(function MusicToggle(_, ref) {
     }
   };
 
+  const statusClass = hidden ? "" : isPlaying ? "active" : "paused opacity-70";
+
   return (
     <button
-      className={`music-toggle fixed top-5 right-5 z-10000 w-[45px] h-[45px] rounded-full flex items-center justify-center border-0 cursor-pointer shadow-[0_6px_16px_rgba(0,0,0,0.18)] transition-all duration-200 hover:-translate-y-0.5 hover:scale-[1.03] hover:shadow-[0_10px_24px_rgba(0,0,0,0.2)] active:translate-y-0 active:scale-[0.97] ${isPlaying ? "active" : "paused opacity-70"}`}
+      className={`music-toggle fixed top-5 right-5 z-10000 w-[45px] h-[45px] rounded-full flex items-center justify-center border-0 cursor-pointer shadow-[0_6px_16px_rgba(0,0,0,0.18)] transition-all duration-200 hover:-translate-y-0.5 hover:scale-[1.03] hover:shadow-[0_10px_24px_rgba(0,0,0,0.2)] active:translate-y-0 active:scale-[0.97] ${
+        statusClass
+      } ${hidden ? "opacity-0 pointer-events-none" : ""}`}
       style={{ background: "var(--primary-color)", color: "var(--white)" }}
       aria-label="Control de música"
       onClick={toggleMusic}

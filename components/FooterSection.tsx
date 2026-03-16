@@ -6,7 +6,7 @@ export default function FooterSection() {
     >
       <div className="container">
         <p>Con amor, Nabila &amp; Mauro</p>
-        <p className="footer-date mt-1">2 de abril, 2027</p>
+        <p className="footer-date mt-1">02 de abril, 2027</p>
       </div>
     </footer>
   );

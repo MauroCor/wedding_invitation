@@ -337,3 +337,19 @@ section {
     font-size: 2rem;
   }
 }
+
+@keyframes heartbeat {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.08);
+  }
+  40% {
+    transform: scale(0.96);
+  }
+  60% {
+    transform: scale(1.05);
+  }
+}

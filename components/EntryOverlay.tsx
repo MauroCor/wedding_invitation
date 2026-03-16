@@ -54,7 +54,8 @@ export default function EntryOverlay({ onEnter, visible }: EntryOverlayProps) {
         ref={videoRef}
         className="absolute inset-0 w-full h-full object-cover object-[50%_80%] md:object-center"
         src="/envelop.mp4"
-        preload="metadata"
+        preload="auto"
+        poster="/envelop-poster.png"
         playsInline
         muted
         onEnded={handleVideoEnd}

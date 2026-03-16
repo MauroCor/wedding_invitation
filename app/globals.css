@@ -1,3 +1,152 @@
+/* Explosión de piñata / confetti */
+.pinata-explosion {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 11000;
+}
+
+.pinata-explosion-inner {
+  position: relative;
+  width: 260px;
+  height: 260px;
+}
+
+.confetti-piece {
+  position: absolute;
+  width: 22px;
+  height: 36px;
+  border-radius: 4px;
+  opacity: 0;
+  animation: confetti-burst 1.4s ease-out forwards;
+}
+
+.confetti-piece:nth-child(1) {
+  background: #ffb347;
+  top: 50%;
+  left: 50%;
+  --confetti-x: -120px;
+  --confetti-y: -180px;
+}
+
+.confetti-piece:nth-child(2) {
+  background: #ff6b81;
+  top: 48%;
+  left: 46%;
+  --confetti-x: -80px;
+  --confetti-y: -140px;
+}
+
+.confetti-piece:nth-child(3) {
+  background: #6ec6ff;
+  top: 52%;
+  left: 54%;
+  --confetti-x: 110px;
+  --confetti-y: -160px;
+}
+
+.confetti-piece:nth-child(4) {
+  background: #9b59b6;
+  top: 50%;
+  left: 44%;
+  --confetti-x: -150px;
+  --confetti-y: -60px;
+}
+
+.confetti-piece:nth-child(5) {
+  background: #2ecc71;
+  top: 50%;
+  left: 56%;
+  --confetti-x: 150px;
+  --confetti-y: -40px;
+}
+
+.confetti-piece:nth-child(6) {
+  background: #f1c40f;
+  top: 46%;
+  left: 50%;
+  --confetti-x: -40px;
+  --confetti-y: -200px;
+}
+
+.confetti-piece:nth-child(7) {
+  background: #e67e22;
+  top: 54%;
+  left: 50%;
+  --confetti-x: 40px;
+  --confetti-y: -210px;
+}
+
+.confetti-piece:nth-child(8) {
+  background: #e74c3c;
+  top: 48%;
+  left: 56%;
+  --confetti-x: 190px;
+  --confetti-y: -120px;
+}
+
+.confetti-piece:nth-child(9) {
+  background: #1abc9c;
+  top: 52%;
+  left: 44%;
+  --confetti-x: -190px;
+  --confetti-y: -110px;
+}
+
+.confetti-piece:nth-child(10) {
+  background: #3498db;
+  top: 46%;
+  left: 46%;
+  --confetti-x: -60px;
+  --confetti-y: -160px;
+}
+
+@keyframes confetti-burst {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 0, 0) scale(0.8) rotate(0deg);
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(var(--confetti-x, 0px), var(--confetti-y, 0px), 0)
+      scale(1) rotate(520deg);
+  }
+}
+
+/* Botón multicolor al confirmar */
+.btn-multicolor {
+  background-color: transparent;
+  background-size: 400% 400%;
+  background-image: linear-gradient(
+    120deg,
+    #ff0059,
+    #ffea00,
+    #00ff95,
+    #00c3ff,
+    #a700ff,
+    #ff0059
+  );
+  animation: button-multicolor-spin 0.7s linear infinite;
+}
+
+@keyframes button-multicolor-spin {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 @import "tailwindcss";
 
 /* Paleta y fuentes base de la invitación */
@@ -344,12 +493,12 @@ section {
     transform: scale(1);
   }
   25% {
-    transform: scale(1.08);
+    transform: scale(1.015);
   }
   40% {
-    transform: scale(0.96);
+    transform: scale(0.995);
   }
   60% {
-    transform: scale(1.05);
+    transform: scale(1.01);
   }
 }

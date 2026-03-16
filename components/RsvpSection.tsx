@@ -5,6 +5,40 @@ import { useEffect, useState } from "react";
 export default function RsvpSection() {
   const [isValueModalOpen, setIsValueModalOpen] = useState(false);
 
+  const [isHoveringConfirm, setIsHoveringConfirm] = useState(false);
+  const [hasConfirmed, setHasConfirmed] = useState(false);
+
+  const [showPinataExplosion, setShowPinataExplosion] = useState(false);
+
+  const handleConfirmClick = () => {
+    setHasConfirmed(true);
+    // Explosiones de confetti casi consecutivas
+    setShowPinataExplosion(true);
+    setTimeout(() => setShowPinataExplosion(false), 600);
+    setTimeout(() => setShowPinataExplosion(true), 1200);
+    setTimeout(() => setShowPinataExplosion(false), 1800);
+    setTimeout(() => setShowPinataExplosion(true), 2400);
+    setTimeout(() => setShowPinataExplosion(false), 3000);
+    setTimeout(() => setShowPinataExplosion(true), 3600);
+    setTimeout(() => setShowPinataExplosion(false), 4200);
+    setTimeout(() => setShowPinataExplosion(true), 4600);
+    setTimeout(() => setShowPinataExplosion(false), 5000);
+
+    // Abrir el Google Form en una nueva pestaña ~3 segundos después del click
+    setTimeout(() => {
+      window.open(
+        "https://docs.google.com/forms/d/FORM_ID_AQUI/viewform",
+        "_blank",
+        "noopener,noreferrer"
+      );
+    }, 3000);
+
+    setTimeout(() => {
+      setHasConfirmed(false);
+      setIsHoveringConfirm(false);
+    }, 5000);
+  };
+
   useEffect(() => {
     if (!isValueModalOpen) return;
 
@@ -22,7 +56,7 @@ export default function RsvpSection() {
 
         <div className="max-w-xl mx-auto text-center">
           <p
-            className="text-xl md:text-3xl text-[#2C3E50] mb-10 whitespace-nowrap md:whitespace-normal"
+            className="text-xl md:text-3xl text-[#2C3E50] mb-8 whitespace-nowrap md:whitespace-normal"
             style={{ fontFamily: "'Playfair Display', serif" }}
           >
             Nos encantaría contar con tu presencia.
@@ -32,16 +66,24 @@ export default function RsvpSection() {
             <button
               type="button"
               onClick={() => setIsValueModalOpen(true)}
-              className="text-sm md:text-base text-[#2C3E50] font-semibold uppercase tracking-wider border-b border-[#2C3E50] pb-2 hover:text-[#1a252f] transition-colors"
+              className="text-sm mb-8 md:text-base text-[#2C3E50] font-semibold uppercase tracking-wider border-b border-[#2C3E50] pb-1 transition-all hover:text-[#1a252f] hover:-translate-y-0.5"
+              style={{ animation: "heartbeat 6s ease-in-out infinite" }}
             >
-              Ver valor de la tarjeta
+              Ver valor de tarjeta
             </button>
 
             <button
               type="button"
-              className="px-8 py-3 rounded-lg bg-[#5d7a71] text-white font-medium hover:bg-[#4a6560] transition-colors"
+              className={`px-8 py-3 rounded-lg font-bold text-lg transition-colors ${
+                hasConfirmed
+                  ? "btn-multicolor text-white cursor-default"
+                  : "bg-[#5d7a71] text-white hover:bg-[#4a6560]"
+              }`}
+              onClick={handleConfirmClick}
+              onMouseEnter={() => !hasConfirmed && setIsHoveringConfirm(true)}
+              onMouseLeave={() => !hasConfirmed && setIsHoveringConfirm(false)}
             >
-              ¡ Sí voy !
+              {hasConfirmed || isHoveringConfirm ? "¡ Si voy !" : "Confirmar"}
             </button>
           </div>
         </div>
@@ -93,6 +135,33 @@ export default function RsvpSection() {
             <p className="text-sm text-[#2C3E50]/80 mt-1">
               Recibimos efectivo.
             </p>
+          </div>
+        </div>
+      )}
+
+      {showPinataExplosion && (
+        <div className="pinata-explosion">
+          <div className="pinata-explosion-inner">
+            <div className="confetti-piece" />
+            <div className="confetti-piece" />
+            <div className="confetti-piece" />
+            <div className="confetti-piece" />
+            <div className="confetti-piece" />
+            <div className="confetti-piece" />
+            <div className="confetti-piece" />
+            <div className="confetti-piece" />
+            <div className="confetti-piece" />
+            <div className="confetti-piece" />
+            <div className="confetti-piece" />
+            <div className="confetti-piece" />
+            <div className="confetti-piece" />
+            <div className="confetti-piece" />
+            <div className="confetti-piece" />
+            <div className="confetti-piece" />
+            <div className="confetti-piece" />
+            <div className="confetti-piece" />
+            <div className="confetti-piece" />
+            <div className="confetti-piece" />
           </div>
         </div>
       )}

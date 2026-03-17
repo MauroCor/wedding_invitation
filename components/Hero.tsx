@@ -9,19 +9,12 @@ export default function Hero() {
       >
         <BeeLottie src="/lottie/2 bees are flying in the background..json" className="w-full h-full" />
       </div>
-      <div className="hero-content relative z-10 flex flex-col items-center gap-4 w-full">
-        <div className="flex items-center gap-4 w-full max-w-sm">
-          <span className="flex-1 h-px shrink-0" style={{ backgroundColor: "rgba(93, 122, 113, 0.5)" }} aria-hidden />
-          <p
-            className="text-xs tracking-[0.3em] uppercase shrink-0"
-            style={{ fontFamily: "Montserrat, sans-serif", letterSpacing: "0.3em", color: "#5d7a71" }}
-          >
-            Nos casamos
-          </p>
-          <span className="flex-1 h-px shrink-0" style={{ backgroundColor: "rgba(93, 122, 113, 0.5)" }} aria-hidden />
-        </div>
+      <div className="hero-content relative z-10 flex flex-col items-center gap-6 w-full mt-24">
         <div className="relative inline-block">
-          <h1 className="hero-title script-font" style={{ color: "#5d7a71" }}>
+          <h1
+            className="hero-title script-font !text-5xl"
+            style={{ color: "#49733c" }}
+          >
             Nabila &amp; Mauro
           </h1>
           <div
@@ -32,9 +25,14 @@ export default function Hero() {
             <BeeLottie className="w-full h-full" />
           </div>
         </div>
-        <p className="hero-subtitle hero-subtitle-secondary" style={{ color: "#5d7a71" }}>LLEGÓ EL DÍA</p>
       </div>
-      <div className="scroll-indicator" aria-hidden="true">
+      <div className="scroll-indicator flex flex-col items-center gap-16" aria-hidden="true">
+        <p
+          className="text-[0.8rem] font-bold md:text-xl tracking-[0.3em] uppercase"
+          style={{ fontFamily: "Montserrat, sans-serif", letterSpacing: "0.3em", color: "#49733c" }}
+        >
+         ¡ Nos casamos !
+        </p>
         <span className="chevron chevron-down" />
       </div>
     </section>

@@ -1,6 +1,6 @@
 export default function EventSection() {
   return (
-    <section className="event py-6" id="evento" style={{ backgroundColor: '#a3b18a' }}>
+    <section className="event py-6" id="evento" style={{ backgroundColor: '#49733c' }}>
       <div className="container">
         <div className="event-header text-center mb-3">
           <p
@@ -10,7 +10,7 @@ export default function EventSection() {
           >
             N & M
           </p>
-          <p className="event-intro max-w-xl mx-auto">
+          <p className="event-intro text-white max-w-xl mx-auto">
             Con mucha gratitud a Dios y amor en el corazón, queremos celebrar con ustedes el comienzo de nuestra nueva familia.
           </p>
         </div>

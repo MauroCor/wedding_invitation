@@ -56,14 +56,14 @@ export default function CountdownSection() {
     <section className="py-16 md:py-24">
       <div className="container">
         <div className="relative max-w-3xl mx-auto">
-          <div
-            className="relative overflow-hidden rounded-t-[100px] rounded-b-3xl px-6 py-10 md:px-10 md:py-14 flex flex-col items-center justify-center text-center shadow-xl"
-            style={{
-              backgroundColor: "#a3b18a",
-              backgroundImage:
-                "radial-gradient(circle at 0 0, rgba(255,255,255,0.12), transparent 55%), radial-gradient(circle at 80% 20%, rgba(255,255,255,0.08), transparent 55%)",
-            }}
-          >
+            <div
+              className="relative overflow-hidden rounded-t-[100px] rounded-b-3xl px-6 py-10 md:px-10 md:py-14 flex flex-col items-center justify-center text-center shadow-xl"
+              style={{
+                backgroundColor: "#49733c",
+                backgroundImage:
+                  "radial-gradient(circle at 0 0, rgba(255,255,255,0.12), transparent 55%), radial-gradient(circle at 80% 20%, rgba(255,255,255,0.08), transparent 55%)",
+              }}
+            >
             <div className="pointer-events-none absolute -top-10 -right-10 w-40 h-40 rounded-full border border-white/10 opacity-40" />
 
             <h2

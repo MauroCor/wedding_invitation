@@ -36,7 +36,7 @@ export default function DressCodeSection() {
               <div className="flex items-center justify-center gap-1">
                 <div
                   className="w-8 h-8 md:w-14 md:h-14 rounded-full border border-[#2C3E50]/10 shrink-0"
-                  style={{ backgroundColor: "#5d7a71" }}
+                  style={{ backgroundColor: "#49733c" }}
                   title="Reservado: verde"
                   aria-hidden
                 />

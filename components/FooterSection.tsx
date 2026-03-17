@@ -2,7 +2,7 @@ export default function FooterSection() {
   return (
     <footer
       className="footer py-4 md:py-5 text-center text-white"
-      style={{ backgroundColor: "#4a6560" }}
+      style={{ backgroundColor: "#49733c" }}
     >
       <div className="container">
         <p>Con amor, Nabila &amp; Mauro</p>

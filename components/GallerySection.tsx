@@ -1,15 +1,16 @@
-"use client";
+ "use client";
 
 import { useEffect, useRef, useState } from "react";
+import FullscreenOverlay from "./FullscreenOverlay";
 
 // Placeholders de colores para simular fotos (luego reemplazar por <img src="..." />)
 const SLIDES = [
-  { id: 1, color: "#97ae8b", label: "1" },
+  { id: 1, color: "#49733c", label: "1" },
   { id: 2, color: "#bda491", label: "2" },
-  { id: 3, color: "#5d7a71", label: "3" },
+  { id: 3, color: "#49733c", label: "3" },
   { id: 4, color: "#e8ddd4", label: "4" },
   { id: 5, color: "#c4a77d", label: "5" },
-  { id: 6, color: "#a8c5b5", label: "6" },
+  { id: 6, color: "#49733c", label: "6" },
 ];
 
 const INTERVAL_MS = 4000;
@@ -28,18 +29,6 @@ export default function GallerySection() {
     }, INTERVAL_MS);
     return () => clearInterval(timer);
   }, []);
-
-  // Bloquear scroll del fondo cuando el overlay está abierto
-  useEffect(() => {
-    if (!isOverlayOpen) return;
-
-    const previousOverflow = document.documentElement.style.overflow;
-    document.documentElement.style.overflow = "hidden";
-
-    return () => {
-      document.documentElement.style.overflow = previousOverflow;
-    };
-  }, [isOverlayOpen]);
 
   const handleOpen = (slideIndex: number) => {
     setSelectedIndex(slideIndex);
@@ -124,7 +113,7 @@ export default function GallerySection() {
                 aria-label={`Ir a foto ${i + 1}`}
                 onClick={() => setIndex(i)}
                 className={`w-2 h-2 rounded-full transition-colors ${
-                  i === index ? "bg-[#5d7a71]" : "bg-neutral-300"
+                  i === index ? "bg-[#49733c]" : "bg-neutral-300"
                 }`}
               />
             ))}
@@ -134,13 +123,14 @@ export default function GallerySection() {
 
       {/* Overlay al hacer click en la foto */}
       {selectedSlide && (
-        <div
-          className="fixed inset-0 z-[60] flex items-center justify-center bg-black/80"
-          onClick={handleClose}
+        <FullscreenOverlay
+          open={isOverlayOpen}
+          onClose={handleClose}
+          contentClassName="w-full h-full flex items-center justify-center px-4"
         >
           <div
-            className="relative max-w-3xl w-[90%] aspect-4/3 z-[65]"
-            onClick={(e) => e.stopPropagation()}
+            className="relative max-w-3xl w-[90%] aspect-4/3 z-65"
+            onClick={(event) => event.stopPropagation()}
           >
             <div
               className="w-full h-full rounded-xl overflow-hidden shadow-2xl"
@@ -169,7 +159,7 @@ export default function GallerySection() {
             <button
               type="button"
               onClick={goPrev}
-              className="absolute -left-6 md:-left-10 top-1/2 -translate-y-1/2 w-8 h-8 md:w-10 md:h-10 rounded-full bg-black/60 text-white flex items-center justify-center hover:bg-black/80 z-[70]"
+              className="absolute -left-6 md:-left-10 top-1/2 -translate-y-1/2 w-8 h-8 md:w-10 md:h-10 rounded-full bg-black/60 text-white flex items-center justify-center hover:bg-black/80 z-70"
               aria-label="Foto anterior"
             >
               <svg
@@ -192,7 +182,7 @@ export default function GallerySection() {
             <button
               type="button"
               onClick={goNext}
-              className="absolute -right-6 md:-right-10 top-1/2 -translate-y-1/2 w-8 h-8 md:w-10 md:h-10 rounded-full bg-black/60 text-white flex items-center justify-center hover:bg-black/80 z-[70]"
+              className="absolute -right-6 md:-right-10 top-1/2 -translate-y-1/2 w-8 h-8 md:w-10 md:h-10 rounded-full bg-black/60 text-white flex items-center justify-center hover:bg-black/80 z-70"
               aria-label="Foto siguiente"
             >
               <svg
@@ -211,7 +201,7 @@ export default function GallerySection() {
               </svg>
             </button>
           </div>
-        </div>
+        </FullscreenOverlay>
       )}
     </section>
   );

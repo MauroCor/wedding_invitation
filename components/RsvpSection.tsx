@@ -23,6 +23,12 @@ export default function RsvpSection() {
   const [isConfirmModalOpen, setIsConfirmModalOpen] = useState(false);
 
   const handleConfirmClick = () => {
+    // Reproducir sonido yay
+    const audio = new Audio("/audio/yay.mp3");
+    audio.play().catch(() => {
+      // Ignorar errores de reproducción
+    });
+
     setHasConfirmed(true);
     // Varias explosiones de confetti solapadas
     const baseDelay = 0;

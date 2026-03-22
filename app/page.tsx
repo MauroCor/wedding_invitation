@@ -69,7 +69,7 @@ export default function Home() {
 
   return (
     <>
-      <EntryOverlay onEnter={handleEnter} visible={!hasEntered} />
+      <EntryOverlay onEnter={handleEnter} onMusicStart={() => musicRef.current?.startMusic()} visible={!hasEntered} />
       <MusicToggle ref={musicRef} hidden={!hasEntered} />
       <main>
         <Hero />

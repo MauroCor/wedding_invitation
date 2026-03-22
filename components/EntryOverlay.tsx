@@ -4,12 +4,14 @@ import { useEffect, useRef, useState } from "react";
 
 type EntryOverlayProps = {
   onEnter: () => void;
+  onMusicStart?: () => void;
   visible: boolean;
 };
 
-export default function EntryOverlay({ onEnter, visible }: EntryOverlayProps) {
+export default function EntryOverlay({ onEnter, onMusicStart, visible }: EntryOverlayProps) {
   const [hasStartedVideo, setHasStartedVideo] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [isHydrated, setIsHydrated] = useState(false);
   const videoRef = useRef<HTMLVideoElement | null>(null);
 
   // Bloquear scroll mientras la pantalla de inicio está visible
@@ -28,6 +30,7 @@ export default function EntryOverlay({ onEnter, visible }: EntryOverlayProps) {
   useEffect(() => {
     const mediaQuery = window.matchMedia("(max-width: 768px)");
     setIsMobile(mediaQuery.matches);
+    setIsHydrated(true);
 
     const handleChange = (e: MediaQueryListEvent) => {
       setIsMobile(e.matches);
@@ -39,9 +42,27 @@ export default function EntryOverlay({ onEnter, visible }: EntryOverlayProps) {
 
   if (!visible) return null;
 
+  if (!isHydrated) {
+    return (
+      <div className="fixed inset-0 z-9999 flex items-center justify-center bg-background overflow-hidden" style={{
+        backgroundImage:
+          "repeating-linear-gradient(90deg, transparent 0, transparent 50px, rgba(201, 189, 167, 0.3) 50px, rgba(201, 189, 167, 0.3) 51px)",
+      }}>
+        <div className="flex flex-col items-center justify-center gap-4">
+          <div className="w-12 h-12 border-4 border-text/20 border-t-text rounded-full animate-spin" />
+          <p className="text-text/60 text-sm">Cargando...</p>
+        </div>
+      </div>
+    );
+  }
+
   const handleClick = () => {
     if (hasStartedVideo) return;
     setHasStartedVideo(true);
+    
+    // Inicia la música INMEDIATAMENTE en el contexto de la interacción del usuario
+    onMusicStart?.();
+    
     if (videoRef.current) {
       videoRef.current.play().catch(() => {
         // Ignorar errores de reproducción automáticos

@@ -13,20 +13,32 @@ const SLIDES = [
   { id: 6, color: "#789966", label: "6" },
 ];
 
-const INTERVAL_MS = 4000;
+const SCROLL_INTERVAL_MS = 4000;
 const SWIPE_THRESHOLD_PX = 50;
 
 export default function GallerySection() {
-  const [index, setIndex] = useState(0);
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const scrollContainerRef = useRef<HTMLDivElement | null>(null);
   const touchStartXRef = useRef<number | null>(null);
 
   const isOverlayOpen = selectedIndex !== null;
 
+  // Auto-scroll horizontal
   useEffect(() => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+
     const timer = setInterval(() => {
-      setIndex((i) => (i + 1) % SLIDES.length);
-    }, INTERVAL_MS);
+      const { scrollLeft, scrollWidth, clientWidth } = container;
+      const isAtEnd = scrollLeft + clientWidth >= scrollWidth - 10;
+
+      if (isAtEnd) {
+        container.scrollTo({ left: 0, behavior: "smooth" });
+      } else {
+        container.scrollBy({ left: 300, behavior: "smooth" });
+      }
+    }, SCROLL_INTERVAL_MS);
+
     return () => clearInterval(timer);
   }, []);
 
@@ -38,22 +50,6 @@ export default function GallerySection() {
     setSelectedIndex(null);
   };
 
-  const goTo = (newIndex: number) => {
-    const normalized = ((newIndex % SLIDES.length) + SLIDES.length) % SLIDES.length;
-    setIndex(normalized);
-    setSelectedIndex(normalized);
-  };
-
-  const goNext = () => {
-    if (selectedIndex === null) return;
-    goTo(selectedIndex + 1);
-  };
-
-  const goPrev = () => {
-    if (selectedIndex === null) return;
-    goTo(selectedIndex - 1);
-  };
-
   const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
     touchStartXRef.current = e.touches[0]?.clientX ?? null;
   };
@@ -62,11 +58,15 @@ export default function GallerySection() {
     if (touchStartXRef.current === null) return;
     const endX = e.changedTouches[0]?.clientX ?? touchStartXRef.current;
     const deltaX = endX - touchStartXRef.current;
+    const container = scrollContainerRef.current;
+    if (!container) return;
 
     if (deltaX > SWIPE_THRESHOLD_PX) {
-      goPrev();
+      // Swipe derecha: scroll izquierda
+      container.scrollBy({ left: -300, behavior: "smooth" });
     } else if (deltaX < -SWIPE_THRESHOLD_PX) {
-      goNext();
+      // Swipe izquierda: scroll derecha
+      container.scrollBy({ left: 300, behavior: "smooth" });
     }
 
     touchStartXRef.current = null;
@@ -77,49 +77,42 @@ export default function GallerySection() {
 
   return (
     <section className="gallery py-16 md:py-20 overflow-hidden" id="galeria">
-      <div className="container">
         <h2 className="section-title">Nosotros</h2>
 
-        {/* Vitrina: marco que muestra una "foto" a la vez */}
-        <div className="max-w-2xl mx-auto">
-          <div className="relative aspect-4/3 rounded-lg overflow-hidden shadow-lg bg-neutral-200">
+        {/* Vitrina: múltiples fotos con auto-scroll horizontal */}
+        <div className="w-full">
+          <div
+            ref={scrollContainerRef}
+            className="flex gap-4 overflow-x-auto scroll-smooth pb-4"
+            style={{
+              scrollBehavior: "smooth",
+              WebkitOverflowScrolling: "touch",
+              msOverflowStyle: "none",
+              scrollbarWidth: "none",
+            }}
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
+          >
             {SLIDES.map((slide, i) => (
               <button
                 key={slide.id}
                 type="button"
                 onClick={() => handleOpen(i)}
-                className="absolute inset-0 w-full h-full cursor-pointer focus:outline-none"
+                className="shrink-0 w-64 md:w-92 aspect-4/3 rounded-lg overflow-hidden shadow-lg bg-neutral-200 cursor-pointer hover:shadow-xl transition-shadow duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
                 style={{
-                  transform: `translateX(${(i - index) * 100}%)`,
-                  transition: "transform 700ms ease-in-out",
                   backgroundColor: slide.color,
                 }}
+                aria-label={`Foto ${slide.label}`}
               >
                 <div className="w-full h-full flex items-center justify-center">
-                  <span className="text-white/30 text-4xl font-serif">
+                  <span className="text-white/30 text-5xl font-serif">
                     {slide.label}
                   </span>
                 </div>
               </button>
             ))}
           </div>
-
-          {/* Indicadores de posición */}
-          <div className="flex justify-center gap-2 mt-4">
-            {SLIDES.map((_, i) => (
-              <button
-                key={i}
-                type="button"
-                aria-label={`Ir a foto ${i + 1}`}
-                onClick={() => setIndex(i)}
-                className={`w-2 h-2 rounded-full transition-colors ${
-                  i === index ? "bg-[#789966]" : "bg-neutral-300"
-                }`}
-              />
-            ))}
-          </div>
         </div>
-      </div>
 
       {/* Overlay al hacer click en la foto */}
       {selectedSlide && (
@@ -158,7 +151,11 @@ export default function GallerySection() {
             {/* Flecha izquierda */}
             <button
               type="button"
-              onClick={goPrev}
+              onClick={() => {
+                const newIndex =
+                  selectedIndex === null ? 0 : (selectedIndex - 1 + SLIDES.length) % SLIDES.length;
+                setSelectedIndex(newIndex);
+              }}
               className="absolute -left-6 md:-left-10 top-1/2 -translate-y-1/2 w-8 h-8 md:w-10 md:h-10 rounded-full bg-black/60 text-white flex items-center justify-center hover:bg-black/80 z-70"
               aria-label="Foto anterior"
             >
@@ -181,7 +178,10 @@ export default function GallerySection() {
             {/* Flecha derecha */}
             <button
               type="button"
-              onClick={goNext}
+              onClick={() => {
+                const newIndex = selectedIndex === null ? 0 : (selectedIndex + 1) % SLIDES.length;
+                setSelectedIndex(newIndex);
+              }}
               className="absolute -right-6 md:-right-10 top-1/2 -translate-y-1/2 w-8 h-8 md:w-10 md:h-10 rounded-full bg-black/60 text-white flex items-center justify-center hover:bg-black/80 z-70"
               aria-label="Foto siguiente"
             >

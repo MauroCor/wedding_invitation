@@ -9,6 +9,7 @@ type EntryOverlayProps = {
 
 export default function EntryOverlay({ onEnter, visible }: EntryOverlayProps) {
   const [hasStartedVideo, setHasStartedVideo] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const videoRef = useRef<HTMLVideoElement | null>(null);
 
   // Bloquear scroll mientras la pantalla de inicio está visible
@@ -22,6 +23,19 @@ export default function EntryOverlay({ onEnter, visible }: EntryOverlayProps) {
       document.documentElement.style.overflow = previousOverflow;
     };
   }, [visible]);
+
+  // Detectar si es mobile
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 768px)");
+    setIsMobile(mediaQuery.matches);
+
+    const handleChange = (e: MediaQueryListEvent) => {
+      setIsMobile(e.matches);
+    };
+
+    mediaQuery.addEventListener("change", handleChange);
+    return () => mediaQuery.removeEventListener("change", handleChange);
+  }, []);
 
   if (!visible) return null;
 
@@ -53,16 +67,16 @@ export default function EntryOverlay({ onEnter, visible }: EntryOverlayProps) {
       <video
         ref={videoRef}
         className="absolute inset-0 w-full h-full object-cover object-[50%_80%] md:object-center"
-        src="/envelop.mp4"
+        src={isMobile ? "/envelop-sm.mp4" : "/envelop-md.mp4"}
         preload="auto"
-        poster="/envelop-poster.png"
+        poster={isMobile ? "/envelop-sm.png" : "/envelop-md.png"}
         playsInline
         muted
         onEnded={handleVideoEnd}
       />
 
       {!hasStartedVideo && (
-        <div className="relative z-10 flex flex-col items-center justify-center gap-4 mt-[32rem]">
+        <div className="relative z-10 flex flex-col items-center justify-center gap-4 mt-[32rem] md:mt-[45rem]">
           <span
             className="text-sm uppercase tracking-[0.3em] text-black"
             style={{

@@ -68,7 +68,7 @@ export default function RsvpSection() {
           <div className="max-w-xl mx-auto">
             <div className="bg-white/90 border border-neutral-200 rounded-3xl shadow-md px-6 py-8 md:px-10 md:py-10 text-center">
               <h2
-                className="section-title !mb-4 md:!mb-6"
+                className="section-title mb-4! md:mb-6!"
                 style={{ fontSize: "2rem" }}
               >
                 ¡Te esperamos!
@@ -196,7 +196,7 @@ export default function RsvpSection() {
 
             <div className="mt-6 flex justify-center">
               <a
-                href="https://docs.google.com/forms/d/e/1FAIpQLSdUIiSAHvGIK-kzWngef0hFVbgVx2FhcdEe1L-b6koV2pr38Q/viewform?usp=publish-editor"
+                href="https://docs.google.com/forms/d/e/1FAIpQLSc8yg7aRSw-l-nQ8E2xO2JMBD7PR5jMwVYpQ7B_K4-HY5Ysvw/viewform?usp=pp_url&entry.849895179=Ninguno&entry.1718304354=Ninguno&entry.229254228=Ninguna&entry.510319893=No,+ninguna."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center rounded-lg px-4 py-2 text-sm font-semibold text-white bg-[#789966] hover:bg-[#789966] transition-colors"

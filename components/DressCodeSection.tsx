@@ -19,7 +19,7 @@ export default function DressCodeSection() {
           <div className="flex flex-row flex-nowrap items-center justify-center">
             <div className="shrink-0 w-14 h-20 md:w-20 md:h-24 relative">
               <Image
-                src="/tie.png"
+                src="/icons/tie.png"
                 alt="tie"
                 fill
                 className="object-contain"
@@ -50,7 +50,7 @@ export default function DressCodeSection() {
             </div>
             <div className="shrink-0 w-16 h-24 md:w-24 md:h-32 relative">
               <Image
-                src="/dress.png"
+                src="/icons/dress.png"
                 alt="dress"
                 fill
                 className="object-contain"

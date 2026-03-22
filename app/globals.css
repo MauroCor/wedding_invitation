@@ -279,10 +279,10 @@ section {
 
 .chevron {
   display: inline-block;
-  width: 18px;
-  height: 18px;
-  border-right: 2px solid var(--primary-color);
-  border-bottom: 2px solid var(--primary-color);
+  width: 30px;
+  height: 30px;
+  border-right: 3px solid var(--primary-color);
+  border-bottom: 3px solid var(--primary-color);
   transform: rotate(45deg);
   animation: chevron-bounce 1.8s infinite;
 }
@@ -511,4 +511,17 @@ section {
   60% {
     transform: scale(1.01);
   }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in forwards;
 }

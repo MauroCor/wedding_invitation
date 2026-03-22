@@ -88,16 +88,16 @@ export default function EntryOverlay({ onEnter, onMusicStart, visible }: EntryOv
       <video
         ref={videoRef}
         className="absolute inset-0 w-full h-full object-cover object-[50%_80%] md:object-center"
-        src={isMobile ? "/envelop-sm.mp4" : "/envelop-md.mp4"}
+        src={isMobile ? "/envelop/envelop-sm.mp4" : "/envelop/envelop-md.mp4"}
         preload="auto"
-        poster={isMobile ? "/envelop-sm.png" : "/envelop-md.png"}
+        poster={isMobile ? "/envelop/envelop-sm.png" : "/envelop/envelop-md.png"}
         playsInline
         muted
         onEnded={handleVideoEnd}
       />
 
       {!hasStartedVideo && (
-        <div className="relative z-10 flex flex-col items-center justify-center gap-4 mt-[32rem] md:mt-[45rem]">
+        <div className="relative z-10 flex flex-col items-center justify-center gap-4 mt-128 md:mt-180">
           <span
             className="text-sm uppercase tracking-[0.3em] text-black"
             style={{

@@ -7,7 +7,8 @@ import Hero from "../components/Hero";
 import EventSection from "../components/EventSection";
 import DateSection from "../components/DateSection";
 import CountdownSection from "../components/CountdownSection";
-import GallerySection from "../components/GallerySection";
+import GallerySection from "../components/GallerySectionH";
+import GallerySection2 from "../components/GallerySectionV";
 import DressCodeSection from "../components/DressCodeSection";
 import RsvpSection from "../components/RsvpSection";
 import FooterSection from "../components/FooterSection";
@@ -76,6 +77,7 @@ export default function Home() {
         <EventSection />
         <GallerySection />
         <DateSection />
+        <GallerySection2 />
         <CountdownSection />
         <DressCodeSection />
         <RsvpSection />

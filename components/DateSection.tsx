@@ -66,7 +66,7 @@ export default function DateSection() {
                   style={{ fontFamily: "'Lato', sans-serif" }}
                 >
                   <Image
-                    src="/google-calendar-icon.png"
+                    src="/icons/calendar.png"
                     alt=""
                     width={20}
                     height={20}
@@ -102,7 +102,7 @@ export default function DateSection() {
                   className="inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-white border border-neutral-200 shadow-sm hover:shadow-md hover:border-[#789966]/30 transition-all text-[#2C3E50] font-medium"
                 >
                   <Image
-                    src="/maps-pin.png"
+                    src="/icons/maps-pin.png"
                     alt=""
                     width={20}
                     height={20}

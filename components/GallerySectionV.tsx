@@ -1,45 +1,58 @@
- "use client";
+"use client";
 
 import { useEffect, useRef, useState } from "react";
 import FullscreenOverlay from "./FullscreenOverlay";
 
-// Placeholders de colores para simular fotos (luego reemplazar por <img src="..." />)
+// Imágenes de la galería vertical
 const SLIDES = [
-  { id: 1, color: "#789966", label: "1" },
-  { id: 2, color: "#bda491", label: "2" },
-  { id: 3, color: "#789966", label: "3" },
-  { id: 4, color: "#e8ddd4", label: "4" },
-  { id: 5, color: "#c4a77d", label: "5" },
-  { id: 6, color: "#789966", label: "6" },
+  { id: 7, src: "/v-gallery/carrousel/IMG_0162.JPG", label: "7" },
+  { id: 8, src: "/v-gallery/carrousel/IMG_0175.JPG", label: "8" },
+  { id: 9, src: "/v-gallery/carrousel/IMG_0341.jpg", label: "9" },
+  { id: 10, src: "/v-gallery/carrousel/IMG_0268.jpg", label: "10" },
+  { id: 11, src: "/v-gallery/carrousel/IMG_0283.jpg", label: "11" },
+  { id: 12, src: "/v-gallery/carrousel/IMG_0237.JPG", label: "12" },
 ];
 
-const SCROLL_INTERVAL_MS = 4000;
+// Triplicar slides para efecto infinito seamless sin saltos
+const INFINITE_SLIDES = [...SLIDES, ...SLIDES, ...SLIDES];
+
 const SWIPE_THRESHOLD_PX = 50;
 
-export default function GallerySection() {
+export default function GallerySection2() {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const scrollContainerRef = useRef<HTMLDivElement | null>(null);
   const touchStartXRef = useRef<number | null>(null);
 
   const isOverlayOpen = selectedIndex !== null;
 
-  // Auto-scroll horizontal
+  // Auto-scroll horizontal continuo de derecha a izquierda
   useEffect(() => {
     const container = scrollContainerRef.current;
     if (!container) return;
 
-    const timer = setInterval(() => {
+    const scrollStep = 1.5; // Píxeles por frame para suavidad
+    let isResetting = false;
+
+    const interval = setInterval(() => {
+      if (isResetting) return;
+
       const { scrollLeft, scrollWidth, clientWidth } = container;
-      const isAtEnd = scrollLeft + clientWidth >= scrollWidth - 10;
+      const maxScroll = scrollWidth - clientWidth;
+      const thresholdScroll = maxScroll * 0.35; // Reiniciar cuando llegue a 35% del scroll
 
-      if (isAtEnd) {
-        container.scrollTo({ left: 0, behavior: "smooth" });
+      // Si llega al umbral, reiniciar al final de forma instantánea
+      if (scrollLeft <= thresholdScroll) {
+        isResetting = true;
+        container.scrollLeft = maxScroll;
+        setTimeout(() => {
+          isResetting = false;
+        }, 50);
       } else {
-        container.scrollBy({ left: 300, behavior: "smooth" });
+        container.scrollLeft -= scrollStep;
       }
-    }, SCROLL_INTERVAL_MS);
+    }, 50);
 
-    return () => clearInterval(timer);
+    return () => clearInterval(interval);
   }, []);
 
   const handleOpen = (slideIndex: number) => {
@@ -62,11 +75,11 @@ export default function GallerySection() {
     if (!container) return;
 
     if (deltaX > SWIPE_THRESHOLD_PX) {
-      // Swipe derecha: scroll izquierda
-      container.scrollBy({ left: -300, behavior: "smooth" });
-    } else if (deltaX < -SWIPE_THRESHOLD_PX) {
-      // Swipe izquierda: scroll derecha
+      // Swipe derecha: scroll derecha
       container.scrollBy({ left: 300, behavior: "smooth" });
+    } else if (deltaX < -SWIPE_THRESHOLD_PX) {
+      // Swipe izquierda: scroll izquierda
+      container.scrollBy({ left: -300, behavior: "smooth" });
     }
 
     touchStartXRef.current = null;
@@ -76,10 +89,10 @@ export default function GallerySection() {
     selectedIndex !== null ? SLIDES[selectedIndex] : null;
 
   return (
-    <section className="gallery py-16 md:py-20 overflow-hidden" id="galeria">
-        <h2 className="section-title">Nosotros</h2>
+    <section className="gallery py-16 md:py-20 overflow-hidden" id="galeria2">
+        <h2 className="section-title">Más momentos</h2>
 
-        {/* Vitrina: múltiples fotos con auto-scroll horizontal */}
+        {/* Vitrina: múltiples fotos con auto-scroll horizontal (derecha a izquierda) */}
         <div className="w-full">
           <div
             ref={scrollContainerRef}
@@ -93,22 +106,19 @@ export default function GallerySection() {
             onTouchStart={handleTouchStart}
             onTouchEnd={handleTouchEnd}
           >
-            {SLIDES.map((slide, i) => (
+            {INFINITE_SLIDES.map((slide, i) => (
               <button
-                key={slide.id}
+                key={`${slide.id}-${i}`}
                 type="button"
-                onClick={() => handleOpen(i)}
-                className="shrink-0 w-64 md:w-92 aspect-4/3 rounded-lg overflow-hidden shadow-lg bg-neutral-200 cursor-pointer hover:shadow-xl transition-shadow duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
-                style={{
-                  backgroundColor: slide.color,
-                }}
+                onClick={() => handleOpen(i % SLIDES.length)}
+                className="shrink-0 w-92 md:w-120 aspect-3/4 rounded-lg overflow-hidden shadow-lg bg-neutral-200 cursor-pointer hover:shadow-xl transition-shadow duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
                 aria-label={`Foto ${slide.label}`}
               >
-                <div className="w-full h-full flex items-center justify-center">
-                  <span className="text-white/30 text-5xl font-serif">
-                    {slide.label}
-                  </span>
-                </div>
+                <img
+                  src={slide.src}
+                  alt={`Foto ${slide.label}`}
+                  className="w-full h-full object-cover"
+                />
               </button>
             ))}
           </div>
@@ -122,15 +132,20 @@ export default function GallerySection() {
           contentClassName="w-full h-full flex items-center justify-center px-4"
         >
           <div
-            className="relative max-w-3xl w-[90%] aspect-4/3 z-65"
+            className="relative max-w-2xl w-[90%] aspect-3/4 z-65"
             onClick={(event) => event.stopPropagation()}
           >
             <div
-              className="w-full h-full rounded-xl overflow-hidden shadow-2xl"
-              style={{ backgroundColor: selectedSlide.color }}
+              className="w-full h-full rounded-xl overflow-hidden shadow-2xl relative"
               onTouchStart={handleTouchStart}
               onTouchEnd={handleTouchEnd}
             >
+              <img
+                src={selectedSlide.src}
+                alt={`Foto ${selectedSlide.label}`}
+                className="w-full h-full object-cover"
+              />
+              
               {/* Botón cerrar */}
               <button
                 type="button"
@@ -140,12 +155,6 @@ export default function GallerySection() {
               >
                 ✕
               </button>
-
-              <div className="w-full h-full flex items-center justify-center">
-                <span className="text-white/30 text-6xl font-serif">
-                  {selectedSlide.label}
-                </span>
-              </div>
             </div>
 
             {/* Flecha izquierda */}

@@ -5,12 +5,12 @@ import FullscreenOverlay from "./FullscreenOverlay";
 
 // Placeholders de colores para simular fotos (luego reemplazar por <img src="..." />)
 const SLIDES = [
-  { id: 1, color: "#49733c", label: "1" },
+  { id: 1, color: "#789966", label: "1" },
   { id: 2, color: "#bda491", label: "2" },
-  { id: 3, color: "#49733c", label: "3" },
+  { id: 3, color: "#789966", label: "3" },
   { id: 4, color: "#e8ddd4", label: "4" },
   { id: 5, color: "#c4a77d", label: "5" },
-  { id: 6, color: "#49733c", label: "6" },
+  { id: 6, color: "#789966", label: "6" },
 ];
 
 const INTERVAL_MS = 4000;
@@ -113,7 +113,7 @@ export default function GallerySection() {
                 aria-label={`Ir a foto ${i + 1}`}
                 onClick={() => setIndex(i)}
                 className={`w-2 h-2 rounded-full transition-colors ${
-                  i === index ? "bg-[#49733c]" : "bg-neutral-300"
+                  i === index ? "bg-[#789966]" : "bg-neutral-300"
                 }`}
               />
             ))}

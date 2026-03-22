@@ -59,7 +59,7 @@ export default function CountdownSection() {
             <div
               className="relative overflow-hidden rounded-t-[100px] rounded-b-3xl px-6 py-10 md:px-10 md:py-14 flex flex-col items-center justify-center text-center shadow-xl"
               style={{
-                backgroundColor: "#49733c",
+                backgroundColor: "#789966",
                 backgroundImage:
                   "radial-gradient(circle at 0 0, rgba(255,255,255,0.12), transparent 55%), radial-gradient(circle at 80% 20%, rgba(255,255,255,0.08), transparent 55%)",
               }}

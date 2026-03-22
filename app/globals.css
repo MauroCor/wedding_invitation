@@ -61,7 +61,7 @@
 }
 
 .confetti-piece:nth-child(5) {
-  background: #49733c;
+  background: #789966;
   top: 50%;
   left: 56%;
   /* arriba-derecha suave */
@@ -97,7 +97,7 @@
 }
 
 .confetti-piece:nth-child(9) {
-  background: #49733c;
+  background: #789966;
   top: 52%;
   left: 44%;
   /* arriba-izquierda más lateral */
@@ -137,7 +137,7 @@
     120deg,
     #ff0059,
     #ffea00,
-    #49733c,
+    #789966,
     #00c3ff,
     #a700ff,
     #ff0059

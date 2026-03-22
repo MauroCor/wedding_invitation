@@ -62,9 +62,9 @@ export default function EntryOverlay({ onEnter, visible }: EntryOverlayProps) {
       />
 
       {!hasStartedVideo && (
-        <div className="relative z-10 flex flex-col items-center justify-center gap-4 mt-72">
+        <div className="relative z-10 flex flex-col items-center justify-center gap-4 mt-[32rem]">
           <span
-            className="text-sm uppercase tracking-[0.3em] text-white"
+            className="text-sm uppercase tracking-[0.3em] text-black"
             style={{
               animation: "heartbeat 1.2s infinite",
             }}

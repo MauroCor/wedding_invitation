@@ -36,7 +36,7 @@ export default function DateSection() {
             <div className="text-center">
               <h2 className="section-title !mb-3 md:!mb-4">¿Cuándo?</h2>
               <p
-                className="text-2xl md:text-3xl lg:text-4xl font-light tracking-wide mb-1 md:mb-2 text-[#49733c] italic"
+                className="text-2xl md:text-3xl lg:text-4xl font-light tracking-wide mb-1 md:mb-2 text-[#789966] italic"
                 style={{ fontFamily: "'Playfair Display', serif" }}
               >
                 Viernes{" "}
@@ -46,14 +46,14 @@ export default function DateSection() {
                 abril 2027
               </p>
               <p
-                className="mt-4 text-lg md:text-xl font-light tracking-wide text-[#49733c]"
+                className="mt-4 text-lg md:text-xl font-light tracking-wide text-[#789966]"
                 style={{ fontFamily: "'Lato', sans-serif" }}
               >
                 20:30 hs ceremonia y fiesta
               </p>
 
               <div
-                className="mt-6 w-12 h-px mx-auto bg-[#49733c]/30"
+                className="mt-6 w-12 h-px mx-auto bg-[#789966]/30"
                 aria-hidden
               />
 
@@ -62,7 +62,7 @@ export default function DateSection() {
                   href={getGoogleCalendarUrl()}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-[#49733c] text-white font-medium hover:bg-[#3a5b30] transition-colors"
+                  className="inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-[#789966] text-white font-medium hover:bg-[#3a5b30] transition-colors"
                   style={{ fontFamily: "'Lato', sans-serif" }}
                 >
                   <Image
@@ -99,7 +99,7 @@ export default function DateSection() {
                   href={MAPS_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-white border border-neutral-200 shadow-sm hover:shadow-md hover:border-[#49733c]/30 transition-all text-[#2C3E50] font-medium"
+                  className="inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-white border border-neutral-200 shadow-sm hover:shadow-md hover:border-[#789966]/30 transition-all text-[#2C3E50] font-medium"
                 >
                   <Image
                     src="/maps-pin.png"

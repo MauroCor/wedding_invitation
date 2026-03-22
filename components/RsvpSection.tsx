@@ -90,7 +90,7 @@ export default function RsvpSection() {
                   className={`px-8 py-3 rounded-lg font-bold text-lg transition-colors ${
                     hasConfirmed
                       ? "btn-multicolor text-white cursor-default"
-                      : "bg-[#49733c] text-white hover:bg-[#49733c]"
+                      : "bg-[#789966] text-white hover:bg-[#789966]"
                     }`}
                   onClick={handleConfirmClick}
                   onMouseEnter={() => !hasConfirmed && setIsHoveringConfirm(true)}
@@ -193,7 +193,7 @@ export default function RsvpSection() {
                 href="https://docs.google.com/forms/d/e/1FAIpQLSdUIiSAHvGIK-kzWngef0hFVbgVx2FhcdEe1L-b6koV2pr38Q/viewform?usp=publish-editor"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center rounded-lg px-4 py-2 text-sm font-semibold text-white bg-[#49733c] hover:bg-[#49733c] transition-colors"
+                className="inline-flex items-center justify-center rounded-lg px-4 py-2 text-sm font-semibold text-white bg-[#789966] hover:bg-[#789966] transition-colors"
               >
                 Ver formulario
               </a>

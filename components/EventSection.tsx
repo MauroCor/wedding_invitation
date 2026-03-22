@@ -1,6 +1,6 @@
 export default function EventSection() {
   return (
-    <section className="event py-6" id="evento" style={{ backgroundColor: '#49733c' }}>
+    <section className="event py-6" id="evento" style={{ backgroundColor: '#789966' }}>
       <div className="container">
         <div className="event-header text-center mb-3">
           <p

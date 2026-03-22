@@ -13,7 +13,7 @@ export default function Hero() {
         <div className="relative inline-block">
           <h1
             className="hero-title script-font !text-5xl"
-            style={{ color: "#49733c" }}
+            style={{ color: "#789966" }}
           >
             Nabila &amp; Mauro
           </h1>
@@ -29,7 +29,7 @@ export default function Hero() {
       <div className="scroll-indicator flex flex-col items-center gap-16" aria-hidden="true">
         <p
           className="text-[0.8rem] font-bold md:text-xl tracking-[0.3em] uppercase"
-          style={{ fontFamily: "Montserrat, sans-serif", letterSpacing: "0.3em", color: "#49733c" }}
+          style={{ fontFamily: "Montserrat, sans-serif", letterSpacing: "0.3em", color: "#789966" }}
         >
          ¡ Nos casamos !
         </p>

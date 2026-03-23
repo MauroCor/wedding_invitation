@@ -93,7 +93,7 @@ export default function RsvpSection() {
 
                 <button
                   type="button"
-                  className={`px-8 py-3 rounded-lg font-bold text-lg transition-colors ${
+                  className={`w-[260px] px-8 py-3 rounded-lg font-bold text-lg text-center transition-colors ${
                     hasConfirmed
                       ? "btn-multicolor text-white cursor-default"
                       : "bg-[#789966] text-white hover:bg-[#789966]"
@@ -102,7 +102,7 @@ export default function RsvpSection() {
                   onMouseEnter={() => !hasConfirmed && setIsHoveringConfirm(true)}
                   onMouseLeave={() => !hasConfirmed && setIsHoveringConfirm(false)}
                 >
-                  {hasConfirmed || isHoveringConfirm ? "¡ Si voy !" : "Confirmar asistencia"}
+                  {hasConfirmed || isHoveringConfirm ? "¡Sí voy!" : "Confirmar asistencia"}
                 </button>
               </div>
             </div>
@@ -196,7 +196,7 @@ export default function RsvpSection() {
 
             <div className="mt-6 flex justify-center">
               <a
-                href="https://docs.google.com/forms/d/e/1FAIpQLSc8yg7aRSw-l-nQ8E2xO2JMBD7PR5jMwVYpQ7B_K4-HY5Ysvw/viewform?usp=pp_url&entry.849895179=Ninguno&entry.1718304354=Ninguno&entry.229254228=Ninguna&entry.510319893=No,+ninguna."
+                href="https://docs.google.com/forms/d/e/1FAIpQLSc8yg7aRSw-l-nQ8E2xO2JMBD7PR5jMwVYpQ7B_K4-HY5Ysvw/viewform?usp=pp_url&entry.849895179=Ninguno&entry.1718304354=Ninguno&entry.229254228=Ninguna&entry.510319893=No,+ninguna"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center rounded-lg px-4 py-2 text-sm font-semibold text-white bg-[#789966] hover:bg-[#789966] transition-colors"

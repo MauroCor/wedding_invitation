@@ -14,7 +14,7 @@ export default function EventSection() {
               ¡NOS CASAMOS!
             </h2>
           </div>
-          <p className="event-intro pt-4 text-white max-w-xl mx-auto" style={{
+          <p className="event-intro pt-4 text-white max-w-4xl mx-auto" style={{
             fontFamily: "'Cormorant Garamond', serif",
             fontSize: "1.1rem",
             lineHeight: "1.6",

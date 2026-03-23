@@ -16,44 +16,68 @@ const SLIDES = [
 // Triplicar slides para efecto infinito seamless sin saltos
 const INFINITE_SLIDES = [...SLIDES, ...SLIDES, ...SLIDES];
 
-const SCROLL_INTERVAL_MS = 4000;
 const SWIPE_THRESHOLD_PX = 50;
 
 export default function GallerySection() {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const scrollContainerRef = useRef<HTMLDivElement | null>(null);
   const touchStartXRef = useRef<number | null>(null);
+  const scrollPositionRef = useRef(0);
+  const resumeAutoScrollAtRef = useRef(0);
 
   const isOverlayOpen = selectedIndex !== null;
 
-  // Auto-scroll horizontal continuo y constante
+  // Auto-scroll horizontal continuo y constante (sin saltos)
   useEffect(() => {
     const container = scrollContainerRef.current;
     if (!container) return;
 
-    const scrollStep = 1.5; // Píxeles por frame para suavidad
-    let isResetting = false;
+    // Velocidad más rápida y estable por tiempo (independiente de FPS)
+    const speedPxPerSecond = 90;
+    let rafId = 0;
+    let lastTime = performance.now();
+    let initialized = false;
 
-    const interval = setInterval(() => {
-      if (isResetting) return;
+    const normalizePosition = (position: number, oneSetWidth: number) => {
+      let normalized = position;
+      while (normalized < oneSetWidth) normalized += oneSetWidth;
+      while (normalized >= oneSetWidth * 2) normalized -= oneSetWidth;
+      return normalized;
+    };
 
-      const { scrollLeft, scrollWidth, clientWidth } = container;
-      const maxScroll = scrollWidth - clientWidth;
-      const thresholdScroll = maxScroll * 0.65; // Reiniciar cuando llegue a 65% del scroll
-
-      // Si llega al umbral, reiniciar al inicio de forma instantánea
-      if (scrollLeft >= thresholdScroll) {
-        isResetting = true;
-        container.scrollLeft = 0;
-        setTimeout(() => {
-          isResetting = false;
-        }, 50);
-      } else {
-        container.scrollLeft += scrollStep;
+    const tick = (now: number) => {
+      const oneSetWidth = container.scrollWidth / 3;
+      if (!oneSetWidth || !Number.isFinite(oneSetWidth)) {
+        rafId = requestAnimationFrame(tick);
+        return;
       }
-    }, 50);
 
-    return () => clearInterval(interval);
+      if (!initialized) {
+        // Empezar en el set del medio para poder "envolver" sin corte visual
+        scrollPositionRef.current = oneSetWidth;
+        container.scrollLeft = scrollPositionRef.current;
+        initialized = true;
+        lastTime = now;
+      }
+
+      // Clamp para evitar saltos grandes si la pestaña estuvo pausada
+      const deltaSeconds = Math.min((now - lastTime) / 1000, 0.05);
+      lastTime = now;
+
+      if (now >= resumeAutoScrollAtRef.current) {
+        scrollPositionRef.current += speedPxPerSecond * deltaSeconds;
+        scrollPositionRef.current = normalizePosition(
+          scrollPositionRef.current,
+          oneSetWidth
+        );
+        container.scrollLeft = scrollPositionRef.current;
+      }
+
+      rafId = requestAnimationFrame(tick);
+    };
+
+    rafId = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(rafId);
   }, []);
 
   const handleOpen = (slideIndex: number) => {
@@ -66,6 +90,7 @@ export default function GallerySection() {
 
   const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
     touchStartXRef.current = e.touches[0]?.clientX ?? null;
+    resumeAutoScrollAtRef.current = performance.now() + 1200;
   };
 
   const handleTouchEnd = (e: React.TouchEvent<HTMLDivElement>) => {
@@ -77,12 +102,21 @@ export default function GallerySection() {
 
     if (deltaX > SWIPE_THRESHOLD_PX) {
       // Swipe derecha: scroll izquierda
-      container.scrollBy({ left: -300, behavior: "smooth" });
+      container.scrollBy({ left: -300, behavior: "auto" });
     } else if (deltaX < -SWIPE_THRESHOLD_PX) {
       // Swipe izquierda: scroll derecha
-      container.scrollBy({ left: 300, behavior: "smooth" });
+      container.scrollBy({ left: 300, behavior: "auto" });
     }
 
+    const oneSetWidth = container.scrollWidth / 3;
+    if (oneSetWidth > 0) {
+      let normalized = container.scrollLeft;
+      while (normalized < oneSetWidth) normalized += oneSetWidth;
+      while (normalized >= oneSetWidth * 2) normalized -= oneSetWidth;
+      scrollPositionRef.current = normalized;
+      container.scrollLeft = normalized;
+    }
+    resumeAutoScrollAtRef.current = performance.now() + 1200;
     touchStartXRef.current = null;
   };
 
@@ -97,15 +131,20 @@ export default function GallerySection() {
         <div className="w-full">
           <div
             ref={scrollContainerRef}
-            className="flex gap-4 overflow-x-auto scroll-smooth pb-4"
+            className="flex gap-4 overflow-x-auto pb-4"
             style={{
-              scrollBehavior: "smooth",
               WebkitOverflowScrolling: "touch",
               msOverflowStyle: "none",
               scrollbarWidth: "none",
             }}
             onTouchStart={handleTouchStart}
             onTouchEnd={handleTouchEnd}
+            onMouseEnter={() => {
+              resumeAutoScrollAtRef.current = Number.POSITIVE_INFINITY;
+            }}
+            onMouseLeave={() => {
+              resumeAutoScrollAtRef.current = performance.now() + 150;
+            }}
           >
             {INFINITE_SLIDES.map((slide, i) => (
               <button

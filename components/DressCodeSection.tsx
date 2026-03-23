@@ -10,12 +10,10 @@ export default function DressCodeSection() {
           className="w-full max-w-3xl mx-auto rounded-2xl shadow-lg overflow-hidden flex flex-col px-4 py-6 md:px-8 md:py-12"
           style={{ backgroundColor: "#FAF9F7" }}
         >
-          <h2
-            className="text-xl md:text-2xl font-semibold uppercase tracking-[0.2em] text-[#2C3E50] mb-4 md:mb-6 text-center"
-            style={{ fontFamily: "'Playfair Display', serif" }}
-          >
-            Vestimenta formal
-          </h2>
+          <h2 className="section-title mb-4! md:mb-6!">Vestimenta formal</h2>
+          <p className="text-lg text-center md:text-3xl text-[#2C3E50] mb-8 whitespace-normal">
+            Colores reservados para los novios:
+          </p>
           <div className="flex flex-row flex-nowrap items-center justify-center">
             <div className="shrink-0 w-14 h-20 md:w-20 md:h-24 relative">
               <Image
@@ -27,21 +25,15 @@ export default function DressCodeSection() {
               />
             </div>
             <div className="flex-1 min-w-0 text-center px-2 md:px-6">
-              <p
-                className="text-[#2C3E50]/90 text-sm md:text-base leading-snug md:leading-relaxed mb-3 md:mb-6"
-                style={{ fontFamily: "'Playfair Display', serif" }}
-              >
-                Colores reservados para los novios. Agradecemos que los eviten en su vestimenta.
-              </p>
               <div className="flex items-center justify-center gap-1">
                 <div
-                  className="w-8 h-8 md:w-14 md:h-14 rounded-full border border-[#2C3E50]/10 shrink-0"
+                  className="w-8 h-8 md:w-14 md:h-14 rounded-full border border-[#2C3E50]/40 shrink-0"
                   style={{ backgroundColor: "#789966" }}
                   title="Reservado: verde"
                   aria-hidden
                 />
                 <div
-                  className="w-8 h-8 md:w-14 md:h-14 rounded-full border border-[#2C3E50]/15 shrink-0"
+                  className="w-8 h-8 md:w-14 md:h-14 rounded-full border border-[#2C3E50]/40 shrink-0"
                   style={{ backgroundColor: "#ffffff" }}
                   title="Reservado: blanco"
                   aria-hidden

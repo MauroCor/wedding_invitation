@@ -1,19 +1,18 @@
+import Image from "next/image";
+
 export default function EventSection() {
   return (
-    <section className="event py-8!" id="evento" style={{ backgroundColor: '#789966' }}>
+    <section className="event py-8! mt-20" id="evento" style={{ backgroundColor: '#789966' }}>
       <div className="container">
         <div className="event-header text-center">
-          <div className="text-center">
-            <h2
-              className="text-white text-3xl md:text-5xl"
-              style={{
-                fontFamily: "'Playfair Display', serif",
-                marginBottom: "0.5rem",
-              }}
-            >
-              ¡NOS CASAMOS!
-            </h2>
-          </div>
+          <Image
+            src="/icons/nm.png"
+            alt=""
+            width={80}
+            height={80}
+            className="shrink-0 mx-auto"
+            aria-hidden
+          />
           <p className="event-intro pt-4 text-white max-w-4xl mx-auto" style={{
             fontFamily: "'Cormorant Garamond', serif",
             fontSize: "1.1rem",

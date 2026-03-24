@@ -1,4 +1,4 @@
- "use client";
+"use client";
 
 import { useEffect, useRef, useState } from "react";
 import FullscreenOverlay from "./FullscreenOverlay";
@@ -95,9 +95,14 @@ export default function GallerySection() {
             style={{
               msOverflowStyle: "none",
               scrollbarWidth: "none",
-              touchAction: "none",
+              touchAction: "pan-y",
+              overscrollBehaviorX: "none",
             }}
-            onWheel={(event) => event.preventDefault()}
+            onWheel={(event) => {
+              if (Math.abs(event.deltaX) > Math.abs(event.deltaY)) {
+                event.preventDefault();
+              }
+            }}
           >
             {INFINITE_SLIDES.map((slide, i) => (
               <button

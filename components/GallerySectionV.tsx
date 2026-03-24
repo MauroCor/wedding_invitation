@@ -95,9 +95,14 @@ export default function GallerySection2() {
             style={{
               msOverflowStyle: "none",
               scrollbarWidth: "none",
-              touchAction: "none",
+              touchAction: "pan-y",
+              overscrollBehaviorX: "none",
             }}
-            onWheel={(event) => event.preventDefault()}
+            onWheel={(event) => {
+              if (Math.abs(event.deltaX) > Math.abs(event.deltaY)) {
+                event.preventDefault();
+              }
+            }}
           >
             {INFINITE_SLIDES.map((slide, i) => (
               <button

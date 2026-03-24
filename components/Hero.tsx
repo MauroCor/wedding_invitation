@@ -9,24 +9,30 @@ export default function Hero() {
         alt="Portada de boda"
         className="absolute inset-0 w-full h-full object-cover object-bottom -z-10"
       />
-      {/* Overlay */}
+      {/* Overlay superior con gradiente */}
       <div
-        className="absolute inset-0 bg-black/40 -z-5"
+        className="absolute top-0 left-0 right-0 h-[min(30vh,400px)] bg-linear-to-b from-black/20 via-black/15 to-transparent pointer-events-none -z-5 md:hidden"
         aria-hidden
       />
-
       {/* Animated Bees Background */}
       <div
-        className="absolute top-6 right-6 w-52 md:w-72 opacity-100 pointer-events-none"
-        style={{ transform: "rotate(40deg)" }}
+        className="absolute bottom-16 md:bottom-25 right-2 w-52 md:w-72 opacity-100 pointer-events-none"
+        style={{ transform: "rotate(-40deg)" }}
         aria-hidden
       >
         <BeeLottie src="/lottie/two-bees.json" className="w-full h-full" />
       </div>
-
       {/* Main Content */}
       <div
-        className="relative z-10 -mt-140 md:mt-120 flex flex-col items-start justify-center px-4 pl-10 md:pl-20"
+        className="absolute top-0 md:mt-90 md:left-5 left-0 right-0 z-20 wrap-break-word pt-4 px-2 pb-2 text-2xl md:text-2xl font-light italic text-white font-serif"
+        style={{
+          textShadow: "0 2px 12px rgba(0,0,0,0.5)"
+        }}
+      >
+        ¡Nos casamos!
+      </div>
+      <div
+        className="relative z-10 -mt-160 md:mt-0 md:pl-0 flex flex-col items-start justify-center px-4 pl-2"
         style={{ transform: "rotate(-8deg)" }}
       >
         <div className="animate-fade-in" style={{ animationDuration: "1s" }}>

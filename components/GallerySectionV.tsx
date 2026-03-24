@@ -5,25 +5,21 @@ import FullscreenOverlay from "./FullscreenOverlay";
 
 // Imágenes de la galería vertical
 const SLIDES = [
-  { id: 7, src: "/v-gallery/carrousel/IMG_0162.JPG", label: "7" },
-  { id: 8, src: "/v-gallery/carrousel/IMG_0175.JPG", label: "8" },
+  { id: 7, src: "/v-gallery/carrousel/IMG_0162.jpg", label: "7" },
+  { id: 8, src: "/v-gallery/carrousel/IMG_0175.jpg", label: "8" },
   { id: 9, src: "/v-gallery/carrousel/IMG_0341.jpg", label: "9" },
   { id: 10, src: "/v-gallery/carrousel/IMG_0268.jpg", label: "10" },
   { id: 11, src: "/v-gallery/carrousel/IMG_0283.jpg", label: "11" },
-  { id: 12, src: "/v-gallery/carrousel/IMG_0237.JPG", label: "12" },
+  { id: 12, src: "/v-gallery/carrousel/IMG_0237.jpg", label: "12" },
 ];
 
 // Triplicar slides para efecto infinito seamless sin saltos
 const INFINITE_SLIDES = [...SLIDES, ...SLIDES, ...SLIDES];
 
-const SWIPE_THRESHOLD_PX = 50;
-
 export default function GallerySection2() {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const scrollContainerRef = useRef<HTMLDivElement | null>(null);
-  const touchStartXRef = useRef<number | null>(null);
   const scrollPositionRef = useRef(0);
-  const resumeAutoScrollAtRef = useRef(0);
 
   const isOverlayOpen = selectedIndex !== null;
 
@@ -32,8 +28,8 @@ export default function GallerySection2() {
     const container = scrollContainerRef.current;
     if (!container) return;
 
-    // Velocidad más rápida y estable por tiempo (independiente de FPS)
-    const speedPxPerSecond = 90;
+    // Velocidad un poco más lenta y estable por tiempo (independiente de FPS)
+    const speedPxPerSecond = 60;
     let rafId = 0;
     let lastTime = performance.now();
     let initialized = false;
@@ -64,14 +60,12 @@ export default function GallerySection2() {
       const deltaSeconds = Math.min((now - lastTime) / 1000, 0.05);
       lastTime = now;
 
-      if (now >= resumeAutoScrollAtRef.current) {
-        scrollPositionRef.current -= speedPxPerSecond * deltaSeconds;
-        scrollPositionRef.current = normalizePosition(
-          scrollPositionRef.current,
-          oneSetWidth
-        );
-        container.scrollLeft = scrollPositionRef.current;
-      }
+      scrollPositionRef.current -= speedPxPerSecond * deltaSeconds;
+      scrollPositionRef.current = normalizePosition(
+        scrollPositionRef.current,
+        oneSetWidth
+      );
+      container.scrollLeft = scrollPositionRef.current;
 
       rafId = requestAnimationFrame(tick);
     };
@@ -88,63 +82,22 @@ export default function GallerySection2() {
     setSelectedIndex(null);
   };
 
-  const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
-    touchStartXRef.current = e.touches[0]?.clientX ?? null;
-    resumeAutoScrollAtRef.current = performance.now() + 1200;
-  };
-
-  const handleTouchEnd = (e: React.TouchEvent<HTMLDivElement>) => {
-    if (touchStartXRef.current === null) return;
-    const endX = e.changedTouches[0]?.clientX ?? touchStartXRef.current;
-    const deltaX = endX - touchStartXRef.current;
-    const container = scrollContainerRef.current;
-    if (!container) return;
-
-    if (deltaX > SWIPE_THRESHOLD_PX) {
-      // Swipe derecha: scroll derecha
-      container.scrollBy({ left: 300, behavior: "auto" });
-    } else if (deltaX < -SWIPE_THRESHOLD_PX) {
-      // Swipe izquierda: scroll izquierda
-      container.scrollBy({ left: -300, behavior: "auto" });
-    }
-
-    const oneSetWidth = container.scrollWidth / 3;
-    if (oneSetWidth > 0) {
-      let normalized = container.scrollLeft;
-      while (normalized < oneSetWidth) normalized += oneSetWidth;
-      while (normalized >= oneSetWidth * 2) normalized -= oneSetWidth;
-      scrollPositionRef.current = normalized;
-      container.scrollLeft = normalized;
-    }
-    resumeAutoScrollAtRef.current = performance.now() + 1200;
-    touchStartXRef.current = null;
-  };
-
   const selectedSlide =
     selectedIndex !== null ? SLIDES[selectedIndex] : null;
 
   return (
     <section className="gallery py-16 md:py-20 overflow-hidden" id="galeria2">
-        <h2 className="section-title">Más momentos</h2>
-
         {/* Vitrina: múltiples fotos con auto-scroll horizontal (derecha a izquierda) */}
         <div className="w-full">
           <div
             ref={scrollContainerRef}
-            className="flex gap-4 overflow-x-auto pb-4"
+            className="flex gap-4 overflow-x-hidden pb-4"
             style={{
-              WebkitOverflowScrolling: "touch",
               msOverflowStyle: "none",
               scrollbarWidth: "none",
+              touchAction: "none",
             }}
-            onTouchStart={handleTouchStart}
-            onTouchEnd={handleTouchEnd}
-            onMouseEnter={() => {
-              resumeAutoScrollAtRef.current = Number.POSITIVE_INFINITY;
-            }}
-            onMouseLeave={() => {
-              resumeAutoScrollAtRef.current = performance.now() + 150;
-            }}
+            onWheel={(event) => event.preventDefault()}
           >
             {INFINITE_SLIDES.map((slide, i) => (
               <button
@@ -164,12 +117,6 @@ export default function GallerySection2() {
           </div>
         </div>
 
-        <div className="mt-10 md:mt-12 px-6 text-center">
-          <p className="mx-auto max-w-2xl text-lg md:text-2xl italic font-light tracking-wide text-neutral-700">
-            "Todo lo hizo hermoso en su tiempo"
-          </p>
-        </div>
-
       {/* Overlay al hacer click en la foto */}
       {selectedSlide && (
         <FullscreenOverlay
@@ -183,8 +130,6 @@ export default function GallerySection2() {
           >
             <div
               className="w-full h-full rounded-xl overflow-hidden shadow-2xl relative"
-              onTouchStart={handleTouchStart}
-              onTouchEnd={handleTouchEnd}
             >
               <img
                 src={selectedSlide.src}

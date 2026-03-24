@@ -75,9 +75,9 @@ export default function Home() {
       <main>
         <Hero />
         <EventSection />
-        <GallerySection />
-        <DateSection />
         <GallerySection2 />
+        <DateSection />
+        <GallerySection />
         <CountdownSection />
         <DressCodeSection />
         <RsvpSection />

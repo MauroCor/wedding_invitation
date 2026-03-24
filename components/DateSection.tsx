@@ -32,9 +32,21 @@ export default function DateSection() {
       <div className="container">
         <div className="max-w-4xl mx-auto">
           {/* Card ¿Cuándo? */}
-          <div className="bg-white/90 border border-neutral-200 rounded-3xl shadow-md px-6 py-8 md:px-10 md:py-10">
-            <div className="text-center">
-              <h2 className="section-title !mb-3 md:!mb-4">¿Cuándo?</h2>
+          <div className="relative overflow-hidden border border-neutral-200 rounded-3xl shadow-md px-6 py-8 md:px-10 md:py-10">
+            <Image
+              src="/h-gallery/IMG_0249.jpg"
+              alt=""
+              fill
+              className="object-cover object-center"
+              aria-hidden
+            />
+            <div
+              className="absolute inset-0 bg-white/55 md:bg-white/50"
+              aria-hidden
+            />
+
+            <div className="relative z-10 text-center">
+              <h2 className="section-title mb-3! md:mb-4!">¿Cuándo?</h2>
               <p
                 className="text-2xl md:text-3xl lg:text-4xl font-light tracking-wide mb-1 md:mb-2 text-[#789966] italic"
                 style={{ fontFamily: "'Playfair Display', serif" }}
@@ -62,7 +74,7 @@ export default function DateSection() {
                   href={getGoogleCalendarUrl()}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-[#789966] text-white font-medium hover:bg-[#3a5b30] transition-colors"
+                  className="inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-white/90 border border-neutral-200 shadow-sm hover:shadow-md hover:border-[#789966]/60 transition-all text-[#2C3E50] font-medium"
                   style={{ fontFamily: "'Lato', sans-serif" }}
                 >
                   <Image
@@ -85,7 +97,7 @@ export default function DateSection() {
           {/* Card ¿Dónde? */}
           <div className="bg-white/90 border border-neutral-200 rounded-3xl shadow-md px-6 py-8 md:px-10 md:py-10">
             <div className="text-center">
-              <h2 className="section-title !mb-3 md:!mb-4">¿Dónde?</h2>
+              <h2 className="section-title mb-3! md:mb-4!">¿Dónde?</h2>
               <div className="space-y-2">
                 <p className="text-[#2C3E50]">
                   <strong>SALÓN LA CAYETANA</strong>
@@ -99,7 +111,7 @@ export default function DateSection() {
                   href={MAPS_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-white border border-neutral-200 shadow-sm hover:shadow-md hover:border-[#789966]/30 transition-all text-[#2C3E50] font-medium"
+                  className="inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-white border border-neutral-200 shadow-sm hover:shadow-md hover:border-[#789966]/60 transition-all text-[#2C3E50] font-medium"
                 >
                   <Image
                     src="/icons/maps-pin.png"

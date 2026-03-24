@@ -5,7 +5,7 @@ export default function Hero() {
     <section className="hero relative w-full h-screen flex items-center justify-center" id="inicio">
       {/* Background Image */}
       <img
-        src="/h-gallery/IMG_INIT.JPG"
+        src="/h-gallery/IMG_INIT.jpg"
         alt="Portada de boda"
         className="absolute inset-0 w-full h-full object-cover object-bottom -z-10"
       />

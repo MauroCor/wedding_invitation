@@ -8,8 +8,8 @@ export default function EventSection() {
           <Image
             src="/icons/nm.png"
             alt=""
-            width={80}
-            height={80}
+            width={100}
+            height={100}
             className="shrink-0 mx-auto"
             aria-hidden
           />

@@ -11,6 +11,7 @@ import GallerySection from "../components/GallerySectionH";
 import GallerySection2 from "../components/GallerySectionV";
 import DressCodeSection from "../components/DressCodeSection";
 import RsvpSection from "../components/RsvpSection";
+import FinalSection from "../components/FinalSection";
 import FooterSection from "../components/FooterSection";
 
 export default function Home() {
@@ -78,9 +79,9 @@ export default function Home() {
         <GallerySection2 />
         <DateSection />
         <GallerySection />
-        <CountdownSection />
         <DressCodeSection />
         <RsvpSection />
+        <FinalSection />
       </main>
       <FooterSection />
     </>

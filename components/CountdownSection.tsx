@@ -53,84 +53,67 @@ export default function CountdownSection() {
   }, []);
 
   return (
-    <section className="py-16 md:py-24">
-      <div className="container">
-        <div className="relative max-w-3xl mx-auto">
-            <div
-              className="relative overflow-hidden rounded-t-[100px] rounded-b-3xl px-6 py-10 md:px-10 md:py-14 flex flex-col items-center justify-center text-center shadow-xl"
-              style={{
-                backgroundColor: "#789966",
-                backgroundImage:
-                  "radial-gradient(circle at 0 0, rgba(255,255,255,0.12), transparent 55%), radial-gradient(circle at 80% 20%, rgba(255,255,255,0.08), transparent 55%)",
-              }}
-            >
-            <div className="pointer-events-none absolute -top-10 -right-10 w-40 h-40 rounded-full border border-white/10 opacity-40" />
+    <div
+      className="w-full bg-[#789966]/92 px-4 py-3 text-center shadow-xl backdrop-blur-sm md:px-6 md:py-4"
+      aria-label="Cuenta regresiva para la boda"
+    >
+      <h2
+        className="mb-2 text-xl text-white tracking-[0.12em] md:text-2xl"
+        style={{ fontFamily: "'Cinzel', serif" }}
+      >
+        ¡NOS VEMOS!
+      </h2>
 
-            <h2
-              className="text-3xl md:text-4xl lg:text-5xl mb-3 text-white"
-              style={{ fontFamily: "'Cinzel', serif", letterSpacing: "0.15em" }}
-            >
-              ¡PREPÁRATE!
-            </h2>
-
-            <p
-              className="text-sm md:text-base tracking-[0.35em] uppercase mb-8 text-white/70"
-              style={{ fontFamily: "'Montserrat', system-ui, sans-serif" }}
-            >
-              Nos vemos dentro de
-            </p>
-
-            <div className="flex flex-wrap items-end justify-center gap-4 md:gap-6 lg:gap-8 mb-2 text-white">
-              <div className="flex items-baseline gap-2">
-                <span
-                  className="text-4xl md:text-5xl lg:text-6xl"
-                  style={{ fontFamily: "'Montserrat', system-ui, sans-serif" }}
-                >
-                  {formatNumber(timeLeft.days)}
-                </span>
-                <span className="text-3xl md:text-4xl lg:text-5xl">:</span>
-              </div>
-              <div className="flex items-baseline gap-2">
-                <span
-                  className="text-4xl md:text-5xl lg:text-6xl"
-                  style={{ fontFamily: "'Montserrat', system-ui, sans-serif" }}
-                >
-                  {formatNumber(timeLeft.hours)}
-                </span>
-                <span className="text-3xl md:text-4xl lg:text-5xl">:</span>
-              </div>
-              <div className="flex items-baseline gap-2">
-                <span
-                  className="text-4xl md:text-5xl lg:text-6xl"
-                  style={{ fontFamily: "'Montserrat', system-ui, sans-serif" }}
-                >
-                  {formatNumber(timeLeft.minutes)}
-                </span>
-                <span className="text-3xl md:text-4xl lg:text-5xl">:</span>
-              </div>
-              <div className="flex items-baseline gap-2">
-                <span
-                  className="text-4xl md:text-5xl lg:text-6xl"
-                  style={{ fontFamily: "'Montserrat', system-ui, sans-serif" }}
-                >
-                  {formatNumber(timeLeft.seconds)}
-                </span>
-              </div>
-            </div>
-
-            <div
-              className="flex justify-center gap-6 text-[0.65rem] md:text-xs tracking-[0.3em] uppercase text-white/80"
-              style={{ fontFamily: "'Montserrat', system-ui, sans-serif" }}
-            >
-              <span>DÍAS</span>
-              <span>HORAS</span>
-              <span>MINUTOS</span>
-              <span>SEGUNDOS</span>
-            </div>
-          </div>
+      <div className="flex items-start justify-center gap-1 text-white md:gap-2">
+        <div className="flex flex-col items-center leading-none min-w-[54px] md:min-w-[62px]">
+          <span
+            className="text-2xl font-semibold tabular-nums md:text-3xl"
+            style={{ fontFamily: "'Montserrat', system-ui, sans-serif" }}
+          >
+            {formatNumber(timeLeft.days)}
+          </span>
+          <span className="mt-0.5 text-[10px] uppercase tracking-wide text-white/80 md:text-xs">
+            Días
+          </span>
+        </div>
+        <span className="pt-[2px] text-2xl md:text-3xl text-white/90">:</span>
+        <div className="flex flex-col items-center leading-none min-w-[54px] md:min-w-[62px]">
+          <span
+            className="text-2xl font-semibold tabular-nums md:text-3xl"
+            style={{ fontFamily: "'Montserrat', system-ui, sans-serif" }}
+          >
+            {formatNumber(timeLeft.hours)}
+          </span>
+          <span className="mt-0.5 text-[10px] uppercase tracking-wide text-white/80 md:text-xs">
+            Horas
+          </span>
+        </div>
+        <span className="pt-[2px] text-2xl md:text-3xl text-white/90">:</span>
+        <div className="flex flex-col items-center leading-none min-w-[54px] md:min-w-[62px]">
+          <span
+            className="text-2xl font-semibold tabular-nums md:text-3xl"
+            style={{ fontFamily: "'Montserrat', system-ui, sans-serif" }}
+          >
+            {formatNumber(timeLeft.minutes)}
+          </span>
+          <span className="mt-0.5 text-[10px] uppercase tracking-wide text-white/80 md:text-xs">
+            Min
+          </span>
+        </div>
+        <span className="pt-[2px] text-2xl md:text-3xl text-white/90">:</span>
+        <div className="flex flex-col items-center leading-none min-w-[54px] md:min-w-[62px]">
+          <span
+            className="text-2xl font-semibold tabular-nums md:text-3xl"
+            style={{ fontFamily: "'Montserrat', system-ui, sans-serif" }}
+          >
+            {formatNumber(timeLeft.seconds)}
+          </span>
+          <span className="mt-0.5 text-[10px] uppercase tracking-wide text-white/80 md:text-xs">
+            Seg
+          </span>
         </div>
       </div>
-    </section>
+    </div>
   );
 }
 

@@ -19,8 +19,11 @@ const MusicToggle = forwardRef<MusicToggleHandle, MusicToggleProps>(function Mus
   useEffect(() => {
     audioRef.current = new Audio("/audio/boda.mp3");
     if (audioRef.current) {
-      audioRef.current.loop = true;
+      audioRef.current.loop = false;
     }
+    const audio = audioRef.current;
+    const handleEnded = () => setIsPlaying(false);
+    audio?.addEventListener("ended", handleEnded);
 
     const startMusic = () => {
       if (!audioRef.current || !audioRef.current.paused) return;
@@ -43,6 +46,7 @@ const MusicToggle = forwardRef<MusicToggleHandle, MusicToggleProps>(function Mus
     return () => {
       document.removeEventListener("click", handleFirstInteraction);
       document.removeEventListener("touchstart", handleFirstInteraction);
+      audio?.removeEventListener("ended", handleEnded);
       if (audioRef.current) {
         audioRef.current.pause();
       }

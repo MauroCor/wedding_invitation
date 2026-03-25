@@ -57,7 +57,8 @@ export default function DateSection() {
           fill
           className="object-cover object-[center_35%] md:object-center"
           sizes="100vw"
-          quality={75}
+          quality={90}
+          priority
         />
         <div
           className="absolute inset-0 bg-linear-to-b from-black/35 via-black/20 to-black/40"

@@ -64,9 +64,8 @@ export default function RsvpSection() {
   return (
     <>
       <section className="rsvp py-16 md:py-20" id="rsvp">
-        <div className="container">
-          <div className="max-w-xl mx-auto">
-            <div className="bg-white/90 border border-neutral-200 rounded-3xl shadow-md px-6 py-8 md:px-10 md:py-10 text-center">
+        <div className="w-full">
+          <div className="w-full bg-white/90 border border-neutral-200 shadow-md px-6 py-8 md:px-10 md:py-10 text-center">
               <h2
                 className="section-title mb-4! md:mb-6!"
                 style={{ fontSize: "2rem" }}
@@ -78,7 +77,7 @@ export default function RsvpSection() {
                 className="text-lg md:text-3xl text-[#2C3E50] mb-8 whitespace-normal"
                 style={{ fontFamily: "'Playfair Display', serif" }}
               >
-                Nos encantaría contar con tu presencia.
+                Nos encantaría contar con tu presencia
               </p>
 
               <div className="flex flex-col items-center gap-3">
@@ -105,7 +104,6 @@ export default function RsvpSection() {
                   {hasConfirmed || isHoveringConfirm ? "¡Sí voy!" : "Confirmar asistencia"}
                 </button>
               </div>
-            </div>
           </div>
         </div>
       </section>
@@ -162,7 +160,7 @@ export default function RsvpSection() {
               Alias: <span className="font-semibold text-[#2C3E50]">nabimauro.boda</span>
             </p>
 
-            <p className="text-[15px] text-[#2C3E50]/80 mt-1">Recibimos efectivo.</p>
+            <p className="text-[15px] text-[#2C3E50]/80 mt-1">Recibimos efectivo</p>
           </div>
         </FullscreenOverlay>
       )}

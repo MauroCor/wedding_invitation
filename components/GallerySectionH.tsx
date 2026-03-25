@@ -123,8 +123,11 @@ export default function GallerySection() {
         </div>
 
         <div className="mt-10 md:mt-12 px-6 text-center">
-          <p className="mx-auto max-w-2xl text-lg md:text-2xl italic font-light tracking-wide text-neutral-700">
-            "Todo lo hizo hermoso en su tiempo"
+          <p
+            className="mx-auto max-w-2xl text-lg font-light italic leading-relaxed tracking-[0.04em] text-[#7a756c] md:text-xl md:leading-loose md:tracking-[0.05em] lg:text-2xl"
+            style={{ fontFamily: "'Playfair Display', serif" }}
+          >
+            «Todo lo hizo hermoso en su tiempo»
           </p>
         </div>
 

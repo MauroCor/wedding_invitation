@@ -4,53 +4,63 @@ import Image from "next/image";
 
 export default function DressCodeSection() {
   return (
-    <section className="dress-code py-16 md:py-20" id="dress-code">
-      <div className="container flex justify-center">
-        <article
-          className="w-full max-w-3xl mx-auto rounded-2xl shadow-lg overflow-hidden flex flex-col px-4 py-6 md:px-8 md:py-12"
-          style={{ backgroundColor: "#FAF9F7" }}
-        >
-          <h2 className="section-title mb-4! md:mb-6!">Vestimenta formal</h2>
-          <p className="text-lg text-center md:text-3xl text-[#2C3E50] mb-8 whitespace-normal">
-            Colores reservados para los novios:
-          </p>
-          <div className="flex flex-row flex-nowrap items-center justify-center">
-            <div className="shrink-0 w-14 h-20 md:w-20 md:h-24 relative">
+    <section
+      className="py-8! md:py-10!"
+      id="dress-code"
+      style={{ backgroundColor: "#789966" }}
+    >
+      <div className="container">
+        <div className="text-center">
+          <div className="flex items-center justify-center gap-0 -mb-1">
+            <div className="relative h-20 w-14 md:h-24 md:w-18">
               <Image
                 src="/icons/tie.png"
-                alt="tie"
+                alt=""
                 fill
                 className="object-contain"
                 aria-hidden
               />
             </div>
-            <div className="flex-1 min-w-0 text-center px-2 md:px-6">
-              <div className="flex items-center justify-center gap-1">
-                <div
-                  className="w-8 h-8 md:w-14 md:h-14 rounded-full border border-[#2C3E50]/40 shrink-0"
-                  style={{ backgroundColor: "#789966" }}
-                  title="Reservado: verde"
-                  aria-hidden
-                />
-                <div
-                  className="w-8 h-8 md:w-14 md:h-14 rounded-full border border-[#2C3E50]/40 shrink-0"
-                  style={{ backgroundColor: "#ffffff" }}
-                  title="Reservado: blanco"
-                  aria-hidden
-                />
-              </div>
-            </div>
-            <div className="shrink-0 w-16 h-24 md:w-24 md:h-32 relative">
+            <div className="relative h-22 w-16 md:h-28 md:w-20 -ml-1">
               <Image
                 src="/icons/dress.png"
-                alt="dress"
+                alt=""
                 fill
                 className="object-contain"
-                unoptimized
+                aria-hidden
               />
             </div>
           </div>
-        </article>
+
+          <h2
+            className="mb-2 text-4xl md:text-5xl text-white font-light"
+            style={{ fontFamily: "'Playfair Display', serif" }}
+          >
+            Dress Code
+          </h2>
+
+          <p
+            className="text-xl md:text-2xl text-white/95"
+            style={{ fontFamily: "'Lato', sans-serif" }}
+          >
+            Vestimenta formal elegante
+          </p>
+
+          <p className="mt-2 mb-1 flex items-center justify-center gap-2 text-xs md:text-sm text-white/85">
+            <svg
+              className="w-4 h-4 shrink-0 text-white/90"
+              viewBox="0 0 20 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <circle cx="10" cy="10" r="9" stroke="currentColor" strokeWidth="1.4" />
+              <path d="M9.5 8.5H10.5V14H9.5V8.5Z" fill="currentColor" />
+              <circle cx="10" cy="6" r="0.8" fill="currentColor" />
+            </svg>
+            <span>Colores verde y blanco reservados para los novios.</span>
+          </p>
+        </div>
       </div>
     </section>
   );

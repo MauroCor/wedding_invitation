@@ -11,7 +11,7 @@ export default function Hero() {
       />
       {/* Overlay superior con gradiente */}
       <div
-        className="absolute top-0 left-0 right-0 h-[min(30vh,400px)] bg-linear-to-b from-black/20 via-black/15 to-transparent pointer-events-none -z-5 md:hidden"
+        className="absolute top-0 left-0 right-0 h-[min(30vh,400px)] bg-linear-to-b from-black/20 via-black/15 to-transparent pointer-events-none -z-5 2xl:hidden"
         aria-hidden
       />
       {/* Animated Bees Background */}
@@ -24,96 +24,99 @@ export default function Hero() {
       </div>
       {/* Main Content */}
       <div
-        className="absolute top-0 md:mt-90 md:left-5 left-0 right-0 z-20 wrap-break-word pt-4 px-2 pb-2 text-2xl md:text-2xl font-light italic text-white font-serif"
-        style={{
-          textShadow: "0 2px 12px rgba(0,0,0,0.5)"
-        }}
+        className="absolute -top-3 left-1/2 z-20 flex flex-col items-center px-2 pt-4 2xl:-ml-5 2xl:mt-90"
+        style={{ transform: "translateX(-50%) rotate(-8deg)" }}
       >
-        ¡Nos casamos!
-      </div>
-      <div
-        className="relative z-10 -mt-160 md:mt-0 md:pl-0 flex flex-col items-start justify-center px-4 pl-2"
-        style={{ transform: "rotate(-8deg)" }}
-      >
-        <div className="animate-fade-in" style={{ animationDuration: "1s" }}>
-          {/* Nabila */}
-          <div className="flex items-baseline">
-            <span
-              className="text-7xl md:text-9xl font-light"
-              style={{
-                fontFamily: "'Dancing Script', cursive",
-                color: "#fff4dc",
-                transform: "translateY(2px)",
-                textShadow: "0 3px 10px rgba(0,0,0,0.6)",
-                lineHeight: "0.80",
-              }}
-            >
-              N
-            </span>
+        <div
+          className="wrap-break-word pb-2 text-xl md:text-3xl font-light italic text-white font-serif"
+          style={{
+            textShadow: "0 2px 12px rgba(0,0,0,0.5)",
+            transform: "rotate(8deg)",
+          }}
+        >
+          ¡Nos casamos!
+        </div>
+        <div className="-mt-2 md:mt-0 flex flex-col items-start justify-center -ml-2">
+          <div className="animate-fade-in" style={{ animationDuration: "1s" }}>
+            {/* Nabila */}
+            <div className="flex items-baseline">
+              <span
+                className="text-7xl md:text-8xl font-light"
+                style={{
+                  fontFamily: "'Dancing Script', cursive",
+                  color: "#fff4dc",
+                  transform: "translateY(2px)",
+                  textShadow: "0 3px 10px rgba(0,0,0,0.6)",
+                  lineHeight: "0.80",
+                }}
+              >
+                N
+              </span>
 
-            <span
-              className="text-6xl md:text-8xl font-light"
+              <span
+                className="text-6xl md:text-7xl font-light"
+                style={{
+                  fontFamily: "'Great Vibes', cursive",
+                  color: "#fff4dc",
+                  textShadow: "0 3px 10px rgba(0,0,0,0.6)",
+                  marginLeft: "-0.1em",
+                  lineHeight: "0.80",
+                }}
+              >
+                abila
+              </span>
+            </div>
+
+            {/* y */}
+            <p
+              className="text-3xl md:text-4xl font-light"
               style={{
-                fontFamily: "'Great Vibes', cursive",
+                fontFamily: "'Josefin Sans', sans-serif",
                 color: "#fff4dc",
+                marginLeft: "1.8em",
                 textShadow: "0 3px 10px rgba(0,0,0,0.6)",
-                marginLeft: "-0.1em",
-                lineHeight: "0.80",
+                marginTop: "-0.4em",
+                marginBottom: "-0.4em",
               }}
             >
-              abila
-            </span>
+              y
+            </p>
+
+            {/* Mauro */}
+            <div
+              className="flex items-baseline"
+              style={{
+                marginLeft: "3em",
+              }}
+            >
+              <span
+                className="text-7xl md:text-8xl font-light"
+                style={{
+                  fontFamily: "'Dancing Script', cursive",
+                  color: "#fff4dc",
+                  transform: "translateY(2px)",
+                  textShadow: "0 3px 10px rgba(0,0,0,0.6)",
+                  lineHeight: "0.80",
+                }}
+              >
+                M
+              </span>
+
+              <span
+                className="text-6xl md:text-7xl font-light"
+                style={{
+                  fontFamily: "'Great Vibes', cursive",
+                  color: "#fff4dc",
+                  textShadow: "0 3px 10px rgba(0,0,0,0.6)",
+                  marginLeft: "-0.1em",
+                  lineHeight: "0.80",
+                }}
+              >
+                auro
+              </span>
+            </div>
+
           </div>
-
-          {/* y */}
-          <p
-            className="text-3xl md:text-4xl font-light"
-            style={{
-              fontFamily: "'Josefin Sans', sans-serif",
-              color: "#fff4dc",
-              marginLeft: "1.8em",
-              textShadow: "0 3px 10px rgba(0,0,0,0.6)",
-              marginTop: "-0.4em",
-              marginBottom: "-0.4em",
-            }}
-          >
-            y
-          </p>
-
-          {/* Mauro */}
-          <div
-            className="flex items-baseline"
-            style={{
-              marginLeft: "3em",
-            }}
-          >
-            <span
-              className="text-7xl md:text-9xl font-light"
-              style={{
-                fontFamily: "'Dancing Script', cursive",
-                color: "#fff4dc",
-                transform: "translateY(2px)",
-                textShadow: "0 3px 10px rgba(0,0,0,0.6)",
-                lineHeight: "0.80",
-              }}
-            >
-              M
-            </span>
-
-            <span
-              className="text-6xl md:text-8xl font-light"
-              style={{
-                fontFamily: "'Great Vibes', cursive",
-                color: "#fff4dc",
-                textShadow: "0 3px 10px rgba(0,0,0,0.6)",
-                marginLeft: "-0.1em",
-                lineHeight: "0.80",
-              }}
-            >
-              auro
-            </span>
-          </div>
-
         </div>
       </div>
 

@@ -11,22 +11,29 @@ type TriviaQuestion = {
 const QUESTIONS: TriviaQuestion[] = [
   {
     question: "¿Dónde nos conocimos?",
-    options: ["En una fiesta", "En el gimnasio", "Por amigos en común"],
+    options: [
+      "Los 15 de Nabi.",
+      "Egreso de Mauro.",
+      "Redes sociales.",
+    ],
+    correctIndex: 1,
+  },
+  {
+    question: "¿Cómo se llaman nuestros gatos?",
+    options: [
+      "Bilbo Bolsón y Samaria Galadriel.",
+      "Draco Antonio y Samira Khaleesi.",
+      "Lobito Salomón y Samanta Dracarys.",
+    ],
     correctIndex: 2,
   },
   {
-    question: "¿Qué plan preferimos un domingo?",
-    options: ["Peli y mate", "Salir a bailar", "Ir al shopping"],
-    correctIndex: 0,
-  },
-  {
-    question: "¿Cuál fue nuestro primer viaje juntos?",
-    options: ["Mendoza", "Bariloche", "Villa General Belgrano"],
-    correctIndex: 0,
-  },
-  {
-    question: "¿Quién tarda más en estar listo/a?",
-    options: ["Nabila", "Mauro", "Depende del día"],
+    question: "¿Qué pasó en nuestro primer trekking?",
+    options: [
+      "Nos perdimos al volver.",
+      "Hicimos dedo para volver al auto.",
+      "Ambas son correctas.",
+    ],
     correctIndex: 2,
   },
 ];

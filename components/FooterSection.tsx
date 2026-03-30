@@ -7,10 +7,10 @@ export default function FooterSection() {
       <div className="container">
         <p>Con amor, Nabila &amp; Mauro.</p>
         <p className="footer-date">02 de abril, 2027</p>
-        <p className="mt-1 text-xs text-white/75">
+        <p className="mt-1 text-sm text-white/75">
           Desarrollado por{" "}
           <a
-            href="https://github.com/maurocor"
+            href="https://maurocor.github.io/portfolio/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-[#fff4dc] hover:text-white transition-colors underline"

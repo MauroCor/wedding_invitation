@@ -6,11 +6,11 @@ import FullscreenOverlay from "./FullscreenOverlay";
 // Imágenes de la galería vertical
 const SLIDES = [
   { id: 7, src: "/v-gallery/carrousel/IMG_0162.jpg", label: "7" },
-  { id: 8, src: "/v-gallery/carrousel/IMG_0175.jpg", label: "8" },
-  { id: 9, src: "/v-gallery/carrousel/IMG_0341.jpg", label: "9" },
+  { id: 8, src: "/v-gallery/carrousel/IMG_0283.jpg", label: "8" },
+  { id: 9, src: "/v-gallery/carrousel/IMG_0237.jpg", label: "9" },
   { id: 10, src: "/v-gallery/carrousel/IMG_0268.jpg", label: "10" },
-  { id: 11, src: "/v-gallery/carrousel/IMG_0283.jpg", label: "11" },
-  { id: 12, src: "/v-gallery/carrousel/IMG_0237.jpg", label: "12" },
+  { id: 11, src: "/v-gallery/carrousel/IMG_0175.jpg", label: "11" },
+  { id: 12, src: "/v-gallery/carrousel/IMG_0341.jpg", label: "12" },
 ];
 
 // Triplicar slides para efecto infinito seamless sin saltos

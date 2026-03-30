@@ -5,10 +5,10 @@ import FullscreenOverlay from "./FullscreenOverlay";
 
 // Placeholders de colores para simular fotos (luego reemplazar por <img src="..." />)
 const SLIDES = [
-  { id: 1, src: "/h-gallery/carrousel/IMG_0146.jpg", label: "1" },
+  { id: 1, src: "/h-gallery/carrousel/IMG_0154.jpg", label: "1" },
   { id: 2, src: "/h-gallery/carrousel/IMG_0148.jpg", label: "2" },
   { id: 3, src: "/h-gallery/carrousel/IMG_0207.jpg", label: "3" },
-  { id: 4, src: "/h-gallery/carrousel/IMG_0154.jpg", label: "4" },
+  { id: 4, src: "/h-gallery/carrousel/IMG_0146.jpg", label: "4" },
   { id: 5, src: "/h-gallery/carrousel/IMG_0216.jpg", label: "5" },
   { id: 6, src: "/h-gallery/carrousel/IMG_0264.jpg", label: "6" },
 ];

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { useGallerySwipe } from "@/hooks/useGallerySwipe";
 import FullscreenOverlay from "./FullscreenOverlay";
 
 // Imágenes de la galería vertical
@@ -22,6 +23,16 @@ export default function GallerySection2() {
   const scrollPositionRef = useRef(0);
 
   const isOverlayOpen = selectedIndex !== null;
+
+  const swipeHandlers = useGallerySwipe(
+    isOverlayOpen,
+    () =>
+      setSelectedIndex((i) => (i === null ? 0 : (i + 1) % SLIDES.length)),
+    () =>
+      setSelectedIndex((i) =>
+        i === null ? 0 : (i - 1 + SLIDES.length) % SLIDES.length
+      )
+  );
 
   // Auto-scroll horizontal continuo de derecha a izquierda (sin saltos)
   useEffect(() => {
@@ -131,7 +142,9 @@ export default function GallerySection2() {
         >
           <div
             className="relative max-w-2xl w-[90%] aspect-3/4 z-65"
+            style={{ touchAction: "pan-y" }}
             onClick={(event) => event.stopPropagation()}
+            {...swipeHandlers}
           >
             <div
               className="w-full h-full rounded-xl overflow-hidden shadow-2xl relative"

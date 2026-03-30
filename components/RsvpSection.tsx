@@ -149,7 +149,7 @@ export default function RsvpSection() {
                 />
                 <circle cx="10" cy="6" r="0.8" fill="currentColor" />
               </svg>
-              <span>Aumento mensual por inflación.</span>
+              <span>Aumentos mensuales por inflación.</span>
             </p>
 
             <div className="w-full h-px bg-[#2C3E50]/20 mb-3" />
@@ -161,6 +161,29 @@ export default function RsvpSection() {
             </p>
 
             <p className="text-[15px] text-[#2C3E50]/80 mt-1">Recibimos efectivo</p>
+
+            <a
+              href="https://wa.me/5493515515392"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 inline-flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-4 py-2 text-white shadow-sm transition-all hover:-translate-y-0.5 hover:bg-[#1ebe5d] hover:shadow-md"
+              aria-label="Contactanos por WhatsApp"
+            >
+              <svg
+                className="w-5 h-5"
+                viewBox="0 0 32 32"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <path
+                  d="M19.11 17.24C18.82 17.09 17.39 16.39 17.13 16.29C16.87 16.19 16.68 16.14 16.49 16.43C16.31 16.72 15.79 17.33 15.64 17.51C15.49 17.68 15.35 17.71 15.06 17.56C14.77 17.42 13.84 17.12 12.75 16.15C11.9 15.39 11.32 14.45 11.17 14.16C11.03 13.87 11.16 13.72 11.28 13.58C11.4 13.46 11.57 13.26 11.72 13.09C11.86 12.92 11.91 12.8 12.01 12.6C12.1 12.41 12.06 12.24 11.99 12.1C11.91 11.95 11.35 10.53 11.12 10.01C10.89 9.5 10.66 9.57 10.49 9.56C10.32 9.55 10.13 9.55 9.94 9.55C9.75 9.55 9.45 9.62 9.2 9.9C8.95 10.18 8.25 10.84 8.25 12.2C8.25 13.56 9.22 14.87 9.36 15.05C9.51 15.24 11.43 18.29 14.39 19.57C15.1 19.88 15.65 20.07 16.08 20.21C16.79 20.44 17.44 20.41 17.96 20.33C18.54 20.24 19.73 19.64 19.97 18.97C20.21 18.31 20.21 17.74 20.14 17.62C20.07 17.5 19.89 17.42 19.59 17.27L19.11 17.24Z"
+                  transform="translate(2 0)"
+                />
+                <path d="M16 3C8.82 3 3 8.82 3 16C3 18.55 3.74 20.94 5.01 22.96L3.31 29L9.54 27.35C11.47 28.48 13.71 29.13 16 29.13C23.18 29.13 29 23.31 29 16.13C29 8.82 23.18 3 16 3ZM16 26.78C13.92 26.78 11.88 26.2 10.11 25.1L9.75 24.88L6.06 25.86L7.05 22.26L6.81 21.89C5.66 20.07 5.06 17.98 5.06 15.96C5.06 9.96 9.99 5.06 16 5.06C22.01 5.06 26.94 9.99 26.94 16C26.94 22.01 22.01 26.78 16 26.78Z" />
+              </svg>
+              <span className="text-sm font-semibold">Contactanos</span>
+            </a>
           </div>
         </FullscreenOverlay>
       )}

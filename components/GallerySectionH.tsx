@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { useGallerySwipe } from "@/hooks/useGallerySwipe";
 import FullscreenOverlay from "./FullscreenOverlay";
 
 // Placeholders de colores para simular fotos (luego reemplazar por <img src="..." />)
@@ -22,6 +23,16 @@ export default function GallerySection() {
   const scrollPositionRef = useRef(0);
 
   const isOverlayOpen = selectedIndex !== null;
+
+  const swipeHandlers = useGallerySwipe(
+    isOverlayOpen,
+    () =>
+      setSelectedIndex((i) => (i === null ? 0 : (i + 1) % SLIDES.length)),
+    () =>
+      setSelectedIndex((i) =>
+        i === null ? 0 : (i - 1 + SLIDES.length) % SLIDES.length
+      )
+  );
 
   // Auto-scroll horizontal continuo y constante (sin saltos)
   useEffect(() => {
@@ -124,10 +135,14 @@ export default function GallerySection() {
 
         <div className="mt-10 md:mt-12 px-6 text-center">
           <p
-            className="mx-auto max-w-2xl text-lg font-light italic leading-relaxed tracking-[0.04em] text-[#7a756c] md:text-xl md:leading-loose md:tracking-[0.05em] lg:text-2xl"
-            style={{ fontFamily: "'Playfair Display', serif" }}
+            className="mx-auto max-w-2xl text-lg font-bold italic leading-relaxed tracking-[0.04em] text-[#1f2937] md:text-xl md:leading-loose md:tracking-[0.05em] lg:text-2xl inline"
+            style={{
+              fontFamily: "'Playfair Display', serif",
+              textShadow:
+                "0 1px 2px rgba(255, 255, 255, 0.9), 0 0 8px rgba(255, 255, 255, 0.45)",
+            }}
           >
-            «Todo lo hizo hermoso en su tiempo»
+             «Todo lo hizo hermoso en su tiempo»
           </p>
         </div>
 
@@ -140,7 +155,9 @@ export default function GallerySection() {
         >
           <div
             className="relative max-w-4xl w-[90%] aspect-4/3 z-65"
+            style={{ touchAction: "pan-y" }}
             onClick={(event) => event.stopPropagation()}
+            {...swipeHandlers}
           >
             <div
               className="w-full h-full rounded-xl overflow-hidden shadow-2xl relative"

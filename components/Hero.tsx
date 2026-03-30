@@ -2,7 +2,7 @@ import BeeLottie from "./BeeLottie";
 
 export default function Hero() {
   return (
-    <section className="hero relative w-full h-screen flex items-center justify-center" id="inicio">
+    <section className="hero relative w-full h-svh md:h-screen flex items-center justify-center" id="inicio">
       {/* Background Image */}
       <img
         src="/h-gallery/IMG_INIT.jpg"

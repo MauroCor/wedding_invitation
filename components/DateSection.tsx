@@ -43,7 +43,7 @@ export default function DateSection() {
   return (
     <section
       id="fecha"
-      className="relative grid min-h-[min(88dvh,920px)] grid-rows-[auto_1fr_auto] overflow-hidden py-0!"
+      className="relative grid min-h-[min(88vh,920px)] min-h-[min(88svh,920px)] grid-rows-[auto_1fr_auto] overflow-hidden py-0!"
     >
       <Script
         src="https://cdn.lordicon.com/lordicon.js"

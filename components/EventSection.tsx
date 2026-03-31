@@ -8,16 +8,13 @@ export default function EventSection() {
           <Image
             src="/icons/nm.png"
             alt=""
-            width={100}
-            height={100}
-            className="shrink-0 mx-auto"
+            width={120}
+            height={120}
+            className="shrink-0 mx-auto pb-2"
             aria-hidden
           />
-          <p className="event-intro pt-4 text-white max-w-4xl mx-auto" style={{
+          <p className="event-intro text-lg md:text-2xl inline text-white max-w-4xl mx-auto" style={{
             fontFamily: "'Cormorant Garamond', serif",
-            fontSize: "1.1rem",
-            lineHeight: "1.6",
-            letterSpacing: "0.02em",
           }}>
             Con mucha gratitud y amor en el corazón, queremos celebrar con ustedes el comienzo de nuestra nueva familia.
           </p>

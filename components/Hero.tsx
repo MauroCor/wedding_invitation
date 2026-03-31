@@ -11,7 +11,7 @@ export default function Hero() {
       />
       {/* Overlay superior con gradiente */}
       <div
-        className="absolute top-0 left-0 right-0 h-[min(30vh,400px)] bg-linear-to-b from-black/20 via-black/15 to-transparent pointer-events-none -z-5 2xl:hidden"
+        className="absolute top-0 left-0 right-0 h-[min(30vh,400px)] bg-linear-to-b from-black/20 via-black/15 to-transparent pointer-events-none -z-5 lg:hidden xl:hidden 2xl:hidden"
         aria-hidden
       />
       {/* Animated Bees Background */}
@@ -24,7 +24,7 @@ export default function Hero() {
       </div>
       {/* Main Content */}
       <div
-        className="absolute -top-3 left-1/2 z-20 flex flex-col items-center px-2 pt-4 2xl:-ml-5 2xl:mt-90"
+        className="absolute -top-3 left-1/2 z-20 flex flex-col items-center px-2 pt-4 lg:mt-60 lg:-ml-5 xl:-ml-5 2xl:mt-90"
         style={{ transform: "translateX(-50%) rotate(-8deg)" }}
       >
         <div

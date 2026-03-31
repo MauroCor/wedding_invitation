@@ -59,7 +59,7 @@ export default function CountdownSection() {
     >
       <h2
         className="mb-2 text-xl text-white tracking-[0.12em] md:text-2xl"
-        style={{ fontFamily: "'Cinzel', serif" }}
+        style={{ fontFamily: "'Playfair Display', serif" }}
       >
         ¡NOS VEMOS!
       </h2>
@@ -68,7 +68,7 @@ export default function CountdownSection() {
         <div className="flex flex-col items-center leading-none min-w-[54px] md:min-w-[62px]">
           <span
             className="text-2xl font-semibold tabular-nums md:text-3xl"
-            style={{ fontFamily: "'Montserrat', system-ui, sans-serif" }}
+            style={{ fontFamily: "'Lato', sans-serif" }}
           >
             {formatNumber(timeLeft.days)}
           </span>
@@ -80,7 +80,7 @@ export default function CountdownSection() {
         <div className="flex flex-col items-center leading-none min-w-[54px] md:min-w-[62px]">
           <span
             className="text-2xl font-semibold tabular-nums md:text-3xl"
-            style={{ fontFamily: "'Montserrat', system-ui, sans-serif" }}
+            style={{ fontFamily: "'Lato', sans-serif" }}
           >
             {formatNumber(timeLeft.hours)}
           </span>
@@ -92,7 +92,7 @@ export default function CountdownSection() {
         <div className="flex flex-col items-center leading-none min-w-[54px] md:min-w-[62px]">
           <span
             className="text-2xl font-semibold tabular-nums md:text-3xl"
-            style={{ fontFamily: "'Montserrat', system-ui, sans-serif" }}
+            style={{ fontFamily: "'Lato', sans-serif" }}
           >
             {formatNumber(timeLeft.minutes)}
           </span>
@@ -104,7 +104,7 @@ export default function CountdownSection() {
         <div className="flex flex-col items-center leading-none min-w-[54px] md:min-w-[62px]">
           <span
             className="text-2xl font-semibold tabular-nums md:text-3xl"
-            style={{ fontFamily: "'Montserrat', system-ui, sans-serif" }}
+            style={{ fontFamily: "'Lato', sans-serif" }}
           >
             {formatNumber(timeLeft.seconds)}
           </span>

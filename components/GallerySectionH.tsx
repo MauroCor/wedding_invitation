@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useGallerySwipe } from "@/hooks/useGallerySwipe";
+import BeeLottie from "./BeeLottie";
 import FullscreenOverlay from "./FullscreenOverlay";
 
 // Placeholders de colores para simular fotos (luego reemplazar por <img src="..." />)
@@ -97,9 +98,22 @@ export default function GallerySection() {
     selectedIndex !== null ? SLIDES[selectedIndex] : null;
 
   return (
-    <section className="gallery py-16 md:py-20 overflow-hidden" id="galeria">
-        {/* Vitrina: múltiples fotos con auto-scroll horizontal */}
-        <div className="w-full">
+    <section
+      className="gallery relative py-16 md:py-20 overflow-hidden"
+      id="galeria"
+    >
+        {/* Vitrina: múltiples fotos con auto-scroll horizontal (abejas como Hero, arriba a la izquierda) */}
+        <div className="relative w-full pt-14 md:pt-18">
+          <div
+            className="absolute top-0 left-2 z-20 w-52 md:w-72 opacity-100 pointer-events-none md:left-3"
+            style={{ transform: "rotate(-40deg)" }}
+            aria-hidden
+          >
+            <BeeLottie
+              src="/lottie/two-bees.json"
+              className="w-full h-full"
+            />
+          </div>
           <div
             ref={scrollContainerRef}
             className="flex gap-4 overflow-x-hidden pb-4"
@@ -134,16 +148,30 @@ export default function GallerySection() {
         </div>
 
         <div className="mt-10 md:mt-12 px-6 text-center">
-          <p
-            className="mx-auto max-w-2xl text-lg font-bold italic leading-relaxed tracking-[0.04em] text-[#1f2937] md:text-xl md:leading-loose md:tracking-[0.05em] lg:text-2xl inline"
+          <div
+            role="paragraph"
+            className="mx-auto inline-block max-w-2xl text-lg font-bold italic leading-relaxed tracking-[0.04em] text-[#1f2937] md:text-xl md:leading-loose md:tracking-[0.05em] lg:text-2xl"
             style={{
               fontFamily: "'Playfair Display', serif",
               textShadow:
                 "0 1px 2px rgba(255, 255, 255, 0.9), 0 0 8px rgba(255, 255, 255, 0.45)",
             }}
           >
-             «Todo lo hizo hermoso en su tiempo»
-          </p>
+            «Dios hizo todo hermoso en su{" "}
+            <span className="relative inline-block">
+              tiempo
+              <span
+                className="pointer-events-none absolute left-1/2 top-1/2 z-10 h-[3em] w-[3em] -translate-x-1/2 -translate-y-[62%] overflow-hidden [clip-path:inset(0_0_50%_0)] md:h-[3.5em] md:w-[3.5em] lg:h-[4em] lg:w-[4em]"
+                aria-hidden
+              >
+                <BeeLottie
+                  src="/lottie/bee-fly.json"
+                  className="h-full w-full"
+                />
+              </span>
+            </span>
+            »
+          </div>
         </div>
 
       {/* Overlay al hacer click en la foto */}

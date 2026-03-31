@@ -12,27 +12,45 @@ const QUESTIONS: TriviaQuestion[] = [
   {
     question: "¿Dónde nos conocimos?",
     options: [
-      "Los 15 de Nabi.",
-      "Egreso de Mauro.",
-      "Redes sociales.",
+      "Los 15 de Nabila",
+      "Egreso de Mauro",
+      "Redes sociales",
     ],
     correctIndex: 1,
   },
   {
-    question: "¿Cómo se llaman nuestros gatos?",
+    question: "En nuestro primer trekking:",
     options: [
-      "Bilbo Bolsón y Samaria Galadriel.",
-      "Draco Antonio y Samira Khaleesi.",
-      "Lobito Salomón y Samanta Dracarys.",
+      "Cayó un diluvio y nos refugiamos",
+      "Nos perdimos por estar charlando",
+      "Ambas son correctas",
+    ],
+    correctIndex: 1,
+  },
+  {
+    question: "¿Quién es Pupito?",
+    options: [
+      "Nuestro gato",
+      "Un apodo de Mauro",
+      "El clio de Nabi",
     ],
     correctIndex: 2,
   },
   {
-    question: "¿Qué pasó en nuestro primer trekking?",
+    question: "Nuestros gatos se llaman:",
     options: [
-      "Nos perdimos al volver.",
-      "Hicimos dedo para volver al auto.",
-      "Ambas son correctas.",
+      "Pupito y Samaria",
+      "Lobito y Samanta",
+      "Draco y Samira",
+    ],
+    correctIndex: 1,
+  },
+  {
+    question: "¿Cómo vamos con los preparativos 💍?",
+    options: [
+      "Mauro hace la tarjeta y Nabi se estresa",
+      'Nabi organiza todo y Mauro dice "Sí amor"',
+      "Todas son correctas",
     ],
     correctIndex: 2,
   },

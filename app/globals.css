@@ -219,17 +219,6 @@ section {
   padding-bottom: 1rem;
 }
 
-.section-title::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80px;
-  height: 3px;
-  background: var(--primary-color);
-}
-
 /* Hero */
 .hero {
   min-height: 100vh;
@@ -506,13 +495,13 @@ section {
     transform: scale(1);
   }
   25% {
-    transform: scale(1.015);
+    transform: scale(1.01);
   }
   40% {
-    transform: scale(0.995);
+    transform: scale(0.99);
   }
   60% {
-    transform: scale(1.01);
+    transform: scale(1.05);
   }
 }
 

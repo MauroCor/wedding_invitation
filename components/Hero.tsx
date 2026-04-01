@@ -24,18 +24,13 @@ export default function Hero() {
       </div>
       {/* Main Content */}
       <div
-        className="absolute -top-3 left-1/2 z-20 flex flex-col items-center px-2 pt-4 lg:mt-60 lg:-ml-5 xl:-ml-5 2xl:mt-90"
-        style={{ transform: "translateX(-50%) rotate(-8deg)" }}
+        className="absolute -top-3 left-1/2 z-20 flex flex-col items-center px-2 lg:mt-60 lg:-ml-5 xl:-ml-5 2xl:mt-90"
+        style={{
+          transform: "translateX(-50%) rotate(-8deg)",
+          // En viewport bajo casi no agrega espacio; en viewport alto se separa más del borde superior.
+          paddingTop: "clamp(1.2rem, calc((100vh - 620px) * 0.2), 4rem)",
+        }}
       >
-        <div
-          className="wrap-break-word pb-2 text-xl md:text-3xl font-light italic text-white font-serif"
-          style={{
-            textShadow: "0 2px 12px rgba(0,0,0,0.5)",
-            transform: "rotate(8deg)",
-          }}
-        >
-          ¡Nos casamos!
-        </div>
         <div className="-mt-2 md:mt-0 flex flex-col items-start justify-center -ml-2">
           <div className="animate-fade-in" style={{ animationDuration: "1s" }}>
             {/* Nabila */}

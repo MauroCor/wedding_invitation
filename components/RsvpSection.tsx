@@ -93,8 +93,7 @@ export default function RsvpSection() {
                 <button
                   type="button"
                   onClick={() => setIsValueModalOpen(true)}
-                  className="inline-flex items-center justify-center rounded-full border border-[#2C3E50]/25 px-5 py-2 text-sm md:text-base text-[#2C3E50] font-semibold tracking-wide transition-all hover:bg-[#2C3E50]/5 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#789966] focus-visible:ring-offset-2"
-                  style={{ animation: "heartbeat 6s ease-in-out infinite" }}
+                  className="animate-button-pulse inline-flex items-center justify-center rounded-full border border-[#2C3E50]/25 px-5 py-2 text-sm md:text-base text-[#2C3E50] font-semibold tracking-wide transition-colors duration-200 hover:bg-[#2C3E50]/5 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#789966] focus-visible:ring-offset-2"
                 >
                   Ver valor de tarjeta
                 </button>

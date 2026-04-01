@@ -105,7 +105,7 @@ export default function GallerySection() {
         {/* Vitrina: múltiples fotos con auto-scroll horizontal (abejas como Hero, arriba a la izquierda) */}
         <div className="relative w-full pt-14 md:pt-18">
           <div
-            className="absolute top-0 left-2 z-20 w-52 md:w-72 opacity-100 pointer-events-none md:left-3"
+            className="absolute -top-8 left-2 z-20 w-52 md:w-72 opacity-100 pointer-events-none md:left-3"
             style={{ transform: "rotate(-40deg)" }}
             aria-hidden
           >
@@ -147,30 +147,44 @@ export default function GallerySection() {
           </div>
         </div>
 
-        <div className="mt-10 md:mt-12 px-6 text-center">
-          <div
-            role="paragraph"
-            className="mx-auto inline-block max-w-2xl text-lg font-bold italic leading-relaxed tracking-[0.04em] text-[#1f2937] md:text-xl md:leading-loose md:tracking-[0.05em] lg:text-2xl"
-            style={{
-              fontFamily: "'Playfair Display', serif",
-              textShadow:
-                "0 1px 2px rgba(255, 255, 255, 0.9), 0 0 8px rgba(255, 255, 255, 0.45)",
-            }}
-          >
-            «Dios hizo todo hermoso en su{" "}
-            <span className="relative inline-block">
-              tiempo
-              <span
-                className="pointer-events-none absolute left-1/2 top-1/2 z-10 h-[3em] w-[3em] -translate-x-1/2 -translate-y-[62%] overflow-hidden [clip-path:inset(0_0_50%_0)] md:h-[3.5em] md:w-[3.5em] lg:h-[4em] lg:w-[4em]"
-                aria-hidden
-              >
-                <BeeLottie
-                  src="/lottie/bee-fly.json"
-                  className="h-full w-full"
-                />
+        <div className="mt-10 md:mt-12 px-6">
+          <div className="mx-auto max-w-2xl pb-5 md:pb-6">
+            <div
+              role="paragraph"
+              className="text-center text-lg font-bold italic leading-snug tracking-tight text-[#1f2937] md:text-xl md:leading-snug md:tracking-tight lg:text-2xl lg:leading-snug"
+              style={{
+                fontFamily: "'Playfair Display', serif",
+                textShadow:
+                  "0 1px 2px rgba(255, 255, 255, 0.9), 0 0 8px rgba(255, 255, 255, 0.45)",
+              }}
+            >
+              «Dios hizo todo hermoso en su{" "}
+              <span className="relative inline-block whitespace-nowrap">
+                <span className="relative inline-block">
+                  tiempo
+                  <span
+                    className="pointer-events-none absolute left-1/2 top-1/2 z-10 h-[3em] w-[3em] -translate-x-1/2 -translate-y-[62%] overflow-hidden [clip-path:inset(0_0_50%_0)] md:h-[3.5em] md:w-[3.5em] lg:h-[4em] lg:w-[4em]"
+                    aria-hidden
+                  >
+                    <BeeLottie
+                      src="/lottie/bee-fly.json"
+                      className="h-full w-full"
+                    />
+                  </span>
+                </span>
+                »
+                <span
+                  className="absolute top-full right-0 z-1 mt-0 block text-right text-sm font-normal italic leading-none tracking-tight text-[#1f2937] md:text-sm lg:text-lg"
+                  style={{
+                    fontFamily: "'Playfair Display', serif",
+                    textShadow:
+                      "0 1px 2px rgba(255, 255, 255, 0.9), 0 0 8px rgba(255, 255, 255, 0.45)",
+                  }}
+                >
+                  Ecl 3:11
+                </span>
               </span>
-            </span>
-            »
+            </div>
           </div>
         </div>
 

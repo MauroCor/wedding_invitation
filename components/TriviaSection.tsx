@@ -10,7 +10,7 @@ type TriviaQuestion = {
 
 const QUESTIONS: TriviaQuestion[] = [
   {
-    question: "¿Dónde nos conocimos?",
+    question: "¿Dónde nos conocimos 💑?",
     options: [
       "Los 15 de Nabila",
       "Egreso de Mauro",
@@ -19,7 +19,7 @@ const QUESTIONS: TriviaQuestion[] = [
     correctIndex: 1,
   },
   {
-    question: "En nuestro primer trekking:",
+    question: "En nuestro primer trekking ⛰️:",
     options: [
       "Cayó un diluvio y nos refugiamos",
       "Nos perdimos por estar charlando",
@@ -28,7 +28,7 @@ const QUESTIONS: TriviaQuestion[] = [
     correctIndex: 1,
   },
   {
-    question: "¿Quién es Pupito?",
+    question: "¿Quién es Pupito 🤔?",
     options: [
       "Nuestro gato",
       "Un apodo de Mauro",
@@ -37,7 +37,7 @@ const QUESTIONS: TriviaQuestion[] = [
     correctIndex: 2,
   },
   {
-    question: "Nuestros gatos se llaman:",
+    question: "Nuestros gatos se llaman 🐱:",
     options: [
       "Pupito y Samaria",
       "Lobito y Samanta",
@@ -46,13 +46,13 @@ const QUESTIONS: TriviaQuestion[] = [
     correctIndex: 1,
   },
   {
-    question: "¿Cómo vamos con los preparativos 💍?",
+    question: "¿Cómo le dicen a Mauro en la familia de Nabi? 😄",
     options: [
-      "Mauro hace la tarjeta y Nabi se estresa",
-      'Nabi organiza todo y Mauro dice "Sí amor"',
-      "Todas son correctas",
+      "Abeja bz bzz",
+      'El zángano',
+      "Ambas son correctas",
     ],
-    correctIndex: 2,
+    correctIndex: 0,
   },
 ];
 

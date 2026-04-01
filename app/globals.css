@@ -505,6 +505,22 @@ section {
   }
 }
 
+/* RSVP “Ver valor de tarjeta”: pulso en el botón (sin hover translate: comparte transform con la animación) */
+@keyframes button-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.animate-button-pulse {
+  animation: button-pulse 2s ease-in-out infinite;
+  transform-origin: center;
+}
+
 @keyframes fade-in {
   from {
     opacity: 0;

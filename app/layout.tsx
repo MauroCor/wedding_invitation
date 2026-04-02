@@ -1,10 +1,36 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
+const siteUrl = "https://nabimauro.vercel.app/";
+const defaultDescription =
+  "Nabila & Mauro — Acompáñanos en nuestro día especial.";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: "Nabila & Mauro",
-  description:
-    "Invitación de boda de Nabila y Mauro. Acompáñanos en nuestro día especial.",
+  description: defaultDescription,
+  openGraph: {
+    title: "Nabila & Mauro",
+    description: defaultDescription,
+    url: "/",
+    siteName: "Nabila & Mauro",
+    locale: "es_AR",
+    type: "website",
+    images: [
+      {
+        url: "/h-gallery/IMG_INIT.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Nabila & Mauro — Nuestra boda",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Nabila & Mauro",
+    description: defaultDescription,
+    images: ["/h-gallery/IMG_INIT.jpg"],
+  },
 };
 
 export default function RootLayout({
@@ -15,10 +41,6 @@ export default function RootLayout({
   return (
     <html lang="es">
       <head>
-        <meta
-          name="description"
-          content="Invitación de boda - Únete a nosotros en nuestro día especial"
-        />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"

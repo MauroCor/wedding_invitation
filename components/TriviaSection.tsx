@@ -48,11 +48,11 @@ const QUESTIONS: TriviaQuestion[] = [
   {
     question: "¿Cómo le dicen a Mauro en la familia de Nabi? 😄",
     options: [
-      "Abeja bz bzz",
-      'El zángano',
+      "Abeja",
+      'Bz Bzz',
       "Ambas son correctas",
     ],
-    correctIndex: 0,
+    correctIndex: 2,
   },
 ];
 

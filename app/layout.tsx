@@ -18,9 +18,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/h-gallery/IMG_INIT.jpg",
-        width: 1200,
-        height: 630,
+        url: "/h-gallery/IMG_OG.jpg",
         alt: "Nabila & Mauro — Nuestra boda",
       },
     ],
@@ -29,7 +27,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Nabila & Mauro",
     description: defaultDescription,
-    images: ["/h-gallery/IMG_INIT.jpg"],
+    images: ["/h-gallery/IMG_OG.jpg"],
   },
 };
 

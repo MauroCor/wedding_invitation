@@ -330,7 +330,7 @@ export default function RsvpSection() {
             </p>
 
             <a
-              href="https://forms.gle/ajakNQoSjeE5UtB49"
+              href="https://forms.gle/KHumScG1shA3fvBu5"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center rounded-full bg-[#789966] px-5 py-2.5 text-lg md:text-xl font-semibold text-white shadow-sm transition-all hover:-translate-y-0.5 hover:bg-[#6d8a5c] hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#789966] focus-visible:ring-offset-2"

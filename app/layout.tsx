@@ -3,7 +3,7 @@ import "./globals.css";
 
 const siteUrl = "https://nabimauro.vercel.app/";
 const defaultDescription =
-  "Nabila & Mauro — Acompáñanos en nuestro día especial.";
+  "Invitación a nuestra boda.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

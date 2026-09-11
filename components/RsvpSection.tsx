@@ -144,14 +144,14 @@ export default function RsvpSection() {
               <p className="text-sm uppercase tracking-[0.12em] font-bold text-[#4E6545]">
                 Adultos
               </p>
-              <p className="text-xl md:text-2xl font-semibold text-[#303333]">$159.000</p>
+              <p className="text-xl md:text-2xl font-semibold text-[#303333]">$162.344</p>
             </div>
 
             <div className="rounded-2xl bg-[#F3F4F3] border border-[#2C3E50]/10 px-8 py-3 mb-6 flex items-center justify-between">
               <p className="text-sm uppercase tracking-[0.12em] font-bold text-[#4E6545]">
                 Niños (3 a 10)
               </p>
-              <p className="text-xl md:text-2xl font-semibold text-[#303333]">$105.600</p>
+              <p className="text-xl md:text-2xl font-semibold text-[#303333]">$107.843</p>
             </div>
 
             <p className="mb-4 text-xs font-black uppercase tracking-[0.25em] text-[#785A1A]/80 text-center">
